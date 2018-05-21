@@ -1,0 +1,20 @@
+<svg width="23" height="23" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>pause-circular-button-symbol</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-14154 -5651)">
+<g id="pause-circular-button-symbol">
+<g id="Group">
+<g id="Pause 1">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(14154 5651)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 11.5001 0C 5.15844 0 0 5.1587 0 11.5001C 0 17.8418 5.15844 23 11.5001 23C 17.8416 23 23 17.8418 23 11.5001C 23 5.1587 17.8416 0 11.5001 0ZM 11.5001 20.9094C 6.31159 20.9094 2.0906 16.6887 2.0906 11.5001C 2.0906 6.31368 6.31159 2.09112 11.4999 2.09112C 16.6884 2.09112 20.9091 6.31368 20.9091 11.5001C 20.9094 16.6887 16.6887 20.9094 11.5001 20.9094ZM 8.36397 14.6371L 10.4546 14.6371L 10.4546 8.36292L 8.36397 8.36292L 8.36397 14.6371ZM 12.5454 14.6371L 14.6363 14.6371L 14.6363 8.36292L 12.5454 8.36292L 12.5454 14.6371Z"/>
+</defs>
+</svg>

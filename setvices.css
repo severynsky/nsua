@@ -1,0 +1,974 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.tour_services{
+	padding: 247px 0 60px 0;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.tour_services_wrap{
+	max-width: 1170px;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+}
+.service_error_mesages{
+	position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;   
+    color: #456;
+}
+.service_error_mesages .order_warning_message{
+	background-color: #fff;
+}
+.tour_services_head{
+	padding: 43px 0 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.tour_services_tab{
+	width: 217px;
+	cursor: pointer;
+	text-align: center;
+	border-bottom: 3px solid transparent;
+	padding-bottom: 15px;
+}
+.tour_services_tab.tour_services_tab_active{
+	border-bottom: 3px solid #2f80ed;
+}
+.tour_services_tab_name{
+	  font-family: Lato;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+}
+.tour_services_tab_active .tour_services_tab_name{
+	color: #2f80ed;
+	
+}
+.tour_services_tab .services_icon{
+	display: inline-block;
+	margin-right: 12px;
+}
+.tour_services_hint{
+	width: 690px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 40px 0 50px 0;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+}
+.tour_tab_accomodation_head{
+	max-width: 690px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	z-index: 5;
+}
+.tab_accomodation_head{
+	width: 25%;
+	box-sizing: border-box;
+	text-align: center;
+	font-family: Lato;
+	padding-bottom: 15px;
+	border-bottom: 2px solid transparent;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  position: relative;
+  margin: 0 15px;
+  z-index: 6;
+}
+.tab_accomodation_head.tab_accomodation_head_active{
+	font-weight: bold;
+  	color: #2f80ed;
+  	border-bottom: 3px solid #2f80ed;
+}
+.tour_tab_head_horizontal{
+	width: 100%;
+    border-top: 2px solid #bdbdbd;
+    position: relative;
+    top: -3px;
+    margin-top: 0;
+    padding-top: 0;
+    z-index: 1;
+}
+.form_accomodation_row{
+	display: flex;
+	justify-content: center;
+	padding-top: 50px;
+	flex-wrap: wrap;
+    padding-top: 50px;
+}
+.form_accomodation_select{
+	width: 210px;
+	margin: 0 15px;
+	text-align: center;
+	position: relative;
+	margin-top: 10px;
+}
+.form_accomodation_select li{
+	list-style: none;
+	box-sizing: border-box;
+	text-align: left;
+	padding: 13px 0;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  padding-left: 15px;
+}
+.form_accomodation_select li:hover{
+	color: #fff;
+	background-color: #2f80ed;
+}
+.form_accomodation_select ul{
+	z-index: 9;
+	border: solid 1px #bdbdbd;
+	background-color: #fff;
+	width: 210px;
+	box-sizing: border-box;
+	position: absolute;
+	top:49px;
+}
+
+.ui-datepicker{
+	z-index: 999!important;
+}
+.form_accomodation_select:hover .accomodation_arrow path{
+	stroke: #2f80ed;
+	transition:.4s;
+}
+.form_accomodation_select:hover .accomodation_custom_drop_down{
+	display: block;
+}
+.form_accomodation_select .accomodation_custom_drop_down{
+	background-color: #fff;
+	display: none;
+}
+.form_accomodation_select .accomodation_arrow{
+	
+	transition:.4s;
+	stroke: #2b2a29;
+}
+.form_accomodation_select select{
+	display: none;
+}
+.accomodation__label_select{
+	text-align: left;
+	box-sizing: border-box;
+	padding: 12px 0 15px 19px;
+	width: 210px;
+	border: solid 1px #bdbdbd;
+	position: relative;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+}
+
+.accomodation_arrow{
+	position: absolute;
+	right: 10px;
+	top: 15px;
+}
+#accomodation_guest_label_select, #accomodation_guest_label_select::placeholder{
+	width: 210px;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  text-align: left;
+}
+/*===================================================*/
+/*===================================================*/
+.amount_room_capacity{
+	font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2b2a29;
+    padding: 15px 0px 15px 120px;
+}
+.amount_room_input_field{
+	width: 210px;
+	display: flex;
+	justify-content: flex-start;
+}
+.amount_room_wraper{
+	padding-left: 105px;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	
+}
+.amount_room_input_field p{
+	padding-right: 20px;
+	font-family: Lato;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #2b2a29;
+}
+.amount_room_input_field input[type="number"]{
+  width: 90px;
+  height: 46px;
+  border: solid 1px #bdbdbd;
+}
+.amount_room_input_field input[type="number"], .amount_room_input_field input[type="number"]::placeholder{
+	text-align: center;
+	font-family: Lato;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #bdbdbd;
+}
+.amount_room_input_field select{
+	 width: 210px;
+  height: 46px;
+}
+.amount_room_input_field{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 15px;
+	padding-bottom: 20px;
+}
+
+.tour_services_button_add_more{
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2f80ed;
+}
+.add_new_plus_image{
+	display: inline-block;
+	margin-right: 10px;
+}
+.tour_services_button_reserve{
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+   width: 136px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2f80ed;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-left: 50px;
+}
+.tour_services_tab_reserve{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 70px 120px 67px 0;
+}
+.amount_room_guest select{
+	display: none;
+}
+.amount_room_guest{
+	position: relative;
+}
+.amount_room_guest ul{
+	border: solid 1px #bdbdbd;
+	width: 100%;
+	box-sizing: border-box;
+}
+.amount_room_guest .accomodation_custom_drop_down{
+	display: none;
+	position: absolute;
+	top: 50px;
+	list-style: none;	
+	left: 0;
+	background-color: #fff;	
+	z-index: 9;
+}
+.form_accomodation_select .accomodation_custom_drop_down{
+	position: absolute;
+	width: 210px;
+	top: 50px;
+	list-style: none;	
+	left: 0;
+	background-color: #fff;	
+	z-index: 9;
+}
+.form_accomodation_select .accomodation_custom_drop_down input[type="number"]{
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	padding: 10px 0;
+}
+.amount_room_guest li{
+
+	background-color: #fff;
+	transition:.3s;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+	padding: 13px 0 13px 15px;
+}
+.amount_room_guest li:hover{
+	transition:.3s;
+	
+	color: #fff;
+	background-color: #2f80ed;
+}
+.amount_room_guest:hover .accomodation_custom_drop_down{
+	display: block;
+}
+.accomodation_guest_label_select{
+	position: relative;
+}
+.accomodation_guest_label_select .accomodation_arrow path{
+	stroke: #2b2a29;
+	transition:.3s;
+}
+.accomodation_guest_label_select:hover .accomodation_arrow path{
+	stroke: #2f80ed;
+	transition:.3s;
+}
+/*==========================================================*/
+/*=========================Transfer=========================*/
+/*==========================================================*/
+.tour__tab_transfer_head{
+	display: flex;
+	justify-content: center;
+}
+.tour__tab_transfer_from{
+	width: 128px;
+	margin-right: 15px;
+}
+.tour__tab_transfer_to{
+	width: 128px;
+	margin-left: 15px;
+}
+.tab_transfer_from_to{
+	text-align: center;
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  padding-bottom: 15px;
+  border-bottom: 3px solid transparent;
+}
+.tab_transfer_from_to.tab_transfer_from_to_active{
+	color: #2f80ed;
+	border-bottom: 3px solid #2f80ed;
+}
+.taransfer_from_select{
+	width: 210px;
+	margin: 0 15px;
+	margin-top: 10px;
+	box-sizing: border-box;
+}
+.transfer_select_from_to{
+	display: none;
+}
+.transfer__label_select{
+	width: 210px;
+	box-sizing: border-box;
+	text-align: left;
+	box-sizing: border-box;
+	padding: 12px 0 15px 19px;
+	width: 210px;
+	border: solid 1px #bdbdbd;
+	position: relative;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+
+}
+.tab_transfer_content_from_row{
+	display: flex;
+	justify-content: center;
+	padding-top: 50px;
+	flex-wrap: wrap;
+}
+.taransfer_from_select{
+	position: relative;
+}
+.taransfer_from_select .transfer_custom_drop_down{
+	display: none;
+	position: absolute;
+	left: 0;
+	top:49px;
+	background-color: #fff;
+	border: solid 1px #bdbdbd;
+	z-index: 9;
+	width: 100%;
+	box-sizing: border-box;
+}
+.taransfer_from_select:hover .transfer_custom_drop_down{
+	display: block;
+}
+.taransfer_from_select li{
+	list-style: none;
+	padding: 13px 0 13px 15px;
+	font-family: Lato;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2b2a29;
+    transition: .3s;
+}
+.taransfer_from_select .transfer_custom_drop_down li:hover{
+	color: #fff;
+	transition: .3s;
+	background-color: #2f80ed;
+}
+.tab_accomodation_head, .tab_transfer_from_to{
+	cursor: pointer;
+}
+.tab_transfer_content_to_row{
+	padding: 30px 0 0 120px;
+
+}
+.ui-datepicker{
+	z-index: 99;
+}
+.services_icon .services_page_path{
+		 fill:#2b2a29;
+	}
+	.services_icon .service_page_path_line{
+		stroke: #2b2a29;
+	}
+	.tour_services_tab.tour_services_tab_active .services_icon .services_page_path{
+		fill: #2f80ed;
+	}
+	.tour_services_tab.tour_services_tab_active .services_icon .service_page_path_line{
+		stroke: #2f80ed;
+	}
+/*======================================================*/
+/*===================SPECIAL============================*/
+/*======================================================*/
+.tab_special_wrap_heading{
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  padding-bottom: 20px;
+}
+.tab_special_wrap{
+	width: 930px;
+   margin: 0 auto;
+}
+.tab_special_wrap_message{
+   width: 100%;
+   box-sizing: border-box;
+   padding: 30px;
+   border: solid 1px #bdbdbd;
+   font-family: Lato;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.tab_guide_wrap_heading{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.guide__label_select{
+	width: 210px;
+	box-sizing: border-box;
+	text-align: left;
+	box-sizing: border-box;
+	padding: 12px 0 15px 19px;
+	width: 210px;
+	border: solid 1px #bdbdbd;
+	position: relative;
+	font-family: Lato;
+   font-size: 16px;
+   font-weight: 500;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #2b2a29;
+}
+.guide__label_select_text{
+	font-family: Lato;
+   font-size: 16px;
+   font-weight: 500;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #2b2a29;
+}
+.guide__label_select .accomodation_arrow path{
+	stroke:#000;
+}
+.guide__label_select:hover .accomodation_arrow path{
+	stroke:#2f80ed;
+}
+.guide_select{
+	display: none;
+}
+.guide_select_drop_down{
+	position: absolute;
+	display: none;
+	top: 49px;
+	border: solid 1px #bdbdbd;
+	display: none;
+	left: 0;
+	width: 100%;
+	z-index: 9;
+}
+.guide_select_drop_down li{
+	list-style: none;
+	background-color: #fff;
+	padding: 13px 0 13px 15px;
+	transition: .3s;
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+}
+.guide_select_drop_down li:hover{
+	background-color: #2f80ed;
+	color:#fff;
+	transition: .3s;
+}
+.tab_guide_wraper{
+	position: relative;
+	background-color: #fff;
+	width: 210px;
+	margin:0 15px;
+}
+.tab_guide_wraper:hover .guide_select_drop_down{
+	display: block;
+}
+.tab_guide_wrap_hint{
+	  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  width: 930px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.tab_guide_wrap_message{
+	width: 100%;
+   box-sizing: border-box;
+   padding: 30px;
+   border: solid 1px #bdbdbd;
+   font-family: Lato;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.tab_guide_wrap_message_wrap{
+	max-width: 930px;
+	width: 94%;
+	margin: 0 auto 30px auto;
+}
+.tour_services_button_add_more{
+	cursor: pointer;
+}
+#guide_datepicker::placeholder, #guide_datepicker{
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  position: relative;
+  outline: none;
+}
+#guide_datepicker:after{
+	content: '<svg width="17" height="11" class="accomodation_arrow" viewBox="0 0 17 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M1,3l7,7l7,-7"  fill="none" stroke-width="2.3px"/></svg>';
+	position: absolute;
+	top:15px;
+	right: 10px;
+	width: 17px;
+	height: 11px;
+}
+.wickedpicker span, .wickedpicker p, .wickedpicker div{
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+}
+.service_tour_datepicker::placeholder{
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2a29;
+  position: relative;
+  outline: none;
+}
+.profile_services_wrap{
+	width: 1170px;
+	margin: 0 auto;
+}
+
+/*===============================================================*/
+/*======================SERVICE ORDER============================*/
+/*===============================================================*/
+.service_order{
+	background-color: #f2f2f2;
+	padding: 130px 0 140px 0;
+	display: none;
+}
+.service_order_wrap{
+	width: 100%;
+	margin: 0 auto;
+	max-width: 930px;
+	padding: 80px 0px 60px 0px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+.service_order_heading{
+	padding-left: 50px;
+}
+.service_order_step{
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2f80ed;
+  display: inline-block;
+}
+.service_order_check{
+ font-family: Lato;
+  font-size: 18px;
+  font-weight: 500;  
+  color: #bdbdbd;
+  display: inline-block;
+  text-transform: uppercase;
+  padding-left: 30px;
+}
+.service_order_info{
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: bold; 
+  text-transform: uppercase;
+  padding-top: 55px;
+  padding-left: 50px;
+  color: #2f80ed;
+  position: relative;
+}
+.service_order_block_wrap{
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+}
+.service_order_block_step2{
+	padding-left: 50px;
+}
+.services_order_row{
+	  padding-left: 50px;
+	  padding-bottom: 40px;
+	  display: flex;
+	  align-items: center;
+}
+.services_order_name_row{
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2f80ed;
+  display: inline-block;
+  padding-left: 12px;
+}
+.service_order_horizontal{
+	margin-top: 15px;
+	height: 2px;
+	width: 100%;
+	background-color: #f2f2f2;
+}
+.service_order_block_accomodation{
+	padding-left: 50px;
+	padding-right: 60px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+
+}
+.service_order_block_guide{
+	padding-left: 50px;
+	padding-right: 60px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.service_order_block_guide .service_order_block_info{
+	padding-right: 60px;
+}
+.service_order_name_value{
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2a29;
+}
+.service_order_value_item{
+   font-family: Lato;
+   font-size: 14px;
+   font-weight: bold;
+   color: #2b2a29;
+   padding-top: 5px;
+   display: flex;
+   justify-content: space-between;
+}
+.service_order_value_item span{
+	display: inline-block;
+	font-family: Lato;
+   font-size: 14px;
+   font-weight: bold;
+   color: #2b2a29;
+}
+.service_order_block_item_wrap{
+	padding-top: 15px;
+}
+.service_order_personal_info_heading{
+  font-family: Lato;
+  font-size: 18px;
+  padding-top: 45px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #2f80ed;
+  position: relative;
+}
+.service_order_personal_info_heading .services_information_edit, .services_order_information_edit{
+	font-family: Lato;
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: capitalize;
+  color: #2f80ed;
+  position: absolute;
+  right: 60px;
+  cursor: pointer;
+}
+.service_order_block_personal{
+	padding-left: 50px;
+}
+.service_order_heading_step2{
+	display: none;
+}
+.service_order_aditional_info{  
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: normal;
+    color: #2b2a29;
+    padding-left: 50px;
+    padding-right: 60px;
+    padding-top: 80px;
+}
+.service_order_button_row{
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 60px;
+	align-items: center;
+	padding-top: 80px;
+}
+.service_order_button_back{
+    cursor: pointer;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b2a29;
+     cursor: pointer;
+}
+.service_order_button_next{
+	cursor: pointer;
+	margin-left: 50px;
+	width: 120px;
+  	height: 56px;
+  	background-color: #2f80ed;
+  	font-family: Lato;
+  	font-size: 18px;
+  	font-weight: bold;  	
+  	color: #ffffff;
+  	text-align: center;
+  	line-height: 50px;
+  	 cursor: pointer;
+}
+.service_order_button_submit{
+	cursor: pointer;
+	margin-left: 50px;
+	width: 120px;
+  	height: 56px;
+  	background-color: #2f80ed;
+  	font-family: Lato;
+  	font-size: 18px;
+  	font-weight: bold;  	
+  	color: #ffffff;
+  	text-align: center;
+  	line-height: 50px;
+  	display: none;
+  	 cursor: pointer;
+}
+.service_tab_name_mobile{
+	color: #2f80ed;
+	font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    display: none;
+}
+@media only screen and (max-width: 960px) {
+	.tour_services_tab {
+	    width: 24vw;
+	}
+	.tour_services_tab_name{
+		display: none;
+	}
+	.tour_services_hint{
+		width: 95%;
+	}
+	.tour_services_tab_reserve{
+		justify-content: center;
+		padding: 30px 0 30px 0;
+	}
+	.tour_services{
+		padding-top: 120px;
+	}
+	.tab_accomodation_head{
+		width: 33%;
+		margin: 0;
+	}
+	.amount_room_wraper{
+		padding-left: 50px;
+	}
+	.amount_room_capacity, .tab_transfer_content_to_row{
+		padding-left: 50px;
+	}
+	.tab_guide_wraper{
+		margin-top: 10px;
+	}
+	.service_order_block_accomodation{
+		padding-left: 20px;
+		padding-right: 20px;
+		flex-wrap: wrap;
+	}
+	.service_order_block_guide{
+		padding-left: 20px;
+		padding-right: 20px;
+		flex-wrap: wrap;
+	}
+	.service_order_info{
+		padding-left: 20px;
+	}
+	.service_order_personal_info_heading .services_information_edit, .services_order_information_edit{
+		right: 15px;
+	}
+	.service_order_block_personal, .service_order_block_step2{
+		padding-left: 20px;
+	}
+	.services_order_row{
+		padding-left: 20px;
+	}
+
+	
+	.tab_special_wrap{
+		width: 96%;
+	}
+	.service_tab_name_mobile{
+		display: block;
+	}
+
+}
+@media only screen and (max-width: 540px) {
+	.order_persons_info_sec_info{
+		width: 100%;
+	}
+}

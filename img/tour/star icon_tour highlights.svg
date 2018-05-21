@@ -1,0 +1,18 @@
+<svg width="23" height="22" viewBox="0 0 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>star</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5675 -2802)">
+<g id="star">
+<g id="Group">
+<g id="star outline">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(5675 2802)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 23 8.38779L 14.7304 7.67335L 11.5 0L 8.26967 7.67335L 0 8.38779L 6.27327 13.8612L 4.393 22L 11.5 17.6834L 18.607 22L 16.7268 13.8612L 23 8.38779ZM 11.5 15.5112L 7.17253 18.1396L 8.31793 13.1827L 4.4965 9.85023L 9.5335 9.41487L 11.5 4.74156L 13.4665 9.41482L 18.5035 9.85019L 14.6832 13.1826L 15.8286 18.1396L 11.5 15.5112Z"/>
+</defs>
+</svg>

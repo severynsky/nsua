@@ -1,0 +1,28 @@
+<svg width="36" height="26" viewBox="0 0 36 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>mail</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-3770 -5112)">
+<g id="mail">
+<g id="Group">
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(3770 5112)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(3771.64 5113.62)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 35.1818 0L 0.818182 0C 0.365727 0 0 0.363188 0 0.8125L 0 25.1875C 0 25.6368 0.365727 26 0.818182 26L 35.1818 26C 35.6335 26 36 25.6368 36 25.1875L 36 0.8125C 36 0.363188 35.6335 0 35.1818 0ZM 34.3636 22.4096L 24.228 12.3451L 23.0711 13.494L 34.0282 24.375L 1.97182 24.375L 12.9289 13.494L 11.772 12.3451L 1.63636 22.4096L 1.63636 1.625L 34.3636 1.625L 34.3636 22.4096Z"/>
+<path id="path1_fill" d="M 31.0737 0L 16.3636 14.6079L 1.65355 0L 0 0L 0 0.655688L 15.7852 16.3313C 16.1051 16.6489 16.6222 16.6489 16.9421 16.3313L 32.7273 0.655688L 32.7273 0L 31.0737 0Z"/>
+</defs>
+</svg>

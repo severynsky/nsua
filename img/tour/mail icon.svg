@@ -1,0 +1,28 @@
+<svg width="44" height="32" viewBox="0 0 44 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>mail icon</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-6871 -2820)">
+<g id="mail icon">
+<g id="Group">
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(6871 2820)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(6873 2822)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 43 0L 1 0C 0.447 0 0 0.447 0 1L 0 31C 0 31.553 0.447 32 1 32L 43 32C 43.552 32 44 31.553 44 31L 44 1C 44 0.447 43.552 0 43 0ZM 42 27.581L 29.612 15.194L 28.198 16.608L 41.59 30L 2.41 30L 15.802 16.608L 14.388 15.194L 2 27.581L 2 2L 42 2L 42 27.581Z"/>
+<path id="path1_fill" d="M 37.979 0L 20 17.979L 2.021 0L 0 0L 0 0.807L 19.293 20.1C 19.684 20.491 20.316 20.491 20.707 20.1L 40 0.807L 40 0L 37.979 0Z"/>
+</defs>
+</svg>

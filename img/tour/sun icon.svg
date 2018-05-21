@@ -1,0 +1,112 @@
+<svg width="28" height="28" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>sun</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5640 -6314)">
+<g id="sun">
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(5645.47 6319.47)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(5664.72 6326.91)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(5652.91 6314)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(5640 6326.91)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(5652.91 6338.72)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path3_fill" transform="matrix(0.8657 -0.5005 0.5005 0.8657 5658.42 6337.83)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path4_fill" transform="matrix(0.5231 -0.8523 0.8523 0.5231 5662.56 6334.54)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path5_fill" transform="matrix(0.866 -0.5 0.5 0.866 5662.74 6321.69)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path6_fill" transform="matrix(0.5221 -0.8529 0.8529 0.5221 5658.66 6318.29)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path7_fill" transform="matrix(0.866 -0.5001 0.5001 0.866 5646.05 6316.42)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path8_fill" transform="matrix(0.5212 -0.8534 0.8534 0.5212 5641.48 6321.64)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path9_fill" transform="matrix(0.866 -0.5 0.5 0.866 5641.33 6334.05)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path10_fill" transform="matrix(0.5238 -0.8519 0.8519 0.5238 5645.74 6339.35)" fill="#2B2A29"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 8.53125 0C 3.82709 0 0 3.82709 0 8.53125C 0 13.2354 3.82709 17.0625 8.53125 17.0625C 13.2354 17.0625 17.0625 13.2354 17.0625 8.53125C 17.0625 3.82709 13.2354 0 8.53125 0ZM 8.53125 14.875C 5.03327 14.875 2.1875 12.0292 2.1875 8.53125C 2.1875 5.03333 5.03327 2.1875 8.53125 2.1875C 12.0292 2.1875 14.875 5.03333 14.875 8.53125C 14.875 12.0292 12.0292 14.875 8.53125 14.875Z"/>
+<path id="path1_fill" d="M 3.28125 0L 0 0L 0 2.1875L 3.28125 2.1875L 3.28125 0Z"/>
+<path id="path2_fill" d="M 2.1875 0L 0 0L 0 3.28125L 2.1875 3.28125L 2.1875 0Z"/>
+<path id="path3_fill" d="M 2.18739 0L 0 0L 0 3.28114L 2.18739 3.28114L 2.18739 0Z"/>
+<path id="path4_fill" d="M 2.18739 0L 0 0L 0 3.28103L 2.18739 3.28103L 2.18739 0Z"/>
+<path id="path5_fill" d="M 3.28114 0L 0 0L 0 2.18745L 3.28114 2.18745L 3.28114 0Z"/>
+<path id="path6_fill" d="M 3.2813 0L 0 0L 0 2.18755L 3.2813 2.18755L 3.2813 0Z"/>
+<path id="path7_fill" d="M 2.18755 0L 0 0L 0 3.28136L 2.18755 3.28136L 2.18755 0Z"/>
+<path id="path8_fill" d="M 2.18745 0L 0 0L 0 3.28114L 2.18745 3.28114L 2.18745 0Z"/>
+<path id="path9_fill" d="M 3.2812 0L 0 0L 0 2.18745L 3.2812 2.18745L 3.2812 0Z"/>
+<path id="path10_fill" d="M 3.28141 0L 0 0L 0 2.18761L 3.28141 2.18761L 3.28141 0Z"/>
+</defs>
+</svg>

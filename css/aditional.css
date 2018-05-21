@@ -1,0 +1,904 @@
+/*=======================================SCROLL ANIMATION========================*/
+.arthide{
+	opacity: 0;
+	transform: translateY(12vh);
+	transition: all .5s ease-out;
+}
+.arthide_show{
+	opacity: 1;
+	transform: translateY(0vh);
+}
+
+/*=======================STATIC PAGE LINK==========*/
+.link_static_page{
+	display: inline-block;
+    padding: 20px 0;
+    text-decoration: unset;
+}
+.static_content_wrap{
+	padding-top: 30px;
+}
+
+/*=========================BLACK ICONS==================*/
+.share_circles_black{
+	stroke:#000;
+	fill:transparent;
+	transition: .4s;
+}
+.mail_icon_lines_black{
+	fill: #000;
+	transition: .4s;
+}
+.mail_icon_black_back{
+	fill: transparent;
+	transition: .4s;
+}
+.social_sharing_tour_black:hover .share_circles_black{
+	stroke:#2f80ed;
+	fill:#2f80ed;
+	transition: .4s;
+}
+.tour_mail_icon_black:hover .mail_icon_lines_black{
+	fill:#fff;
+    transition: .5s;
+}
+.tour_mail_icon_black:hover  .mail_icon_black_back{
+	fill:#2f80ed;
+    transition: .5s;
+}
+.reserve_sharing_block span{
+	display: inline-block;
+	padding: 0 25px;
+}
+/*==========================ALIGN REVIEW SLIDER NAVIGATION===================*/
+div.review-pagination-custom span.swiper-pagination-bullet{
+	border:1px solid #000;
+	opacity: 1;
+	background-color: transparent;
+	outline: none;
+}
+.swiper-button-prev.swiper_prev.review_navigation_prev{
+	left: -110px;
+}
+.swiper-button-next.swiper_next.review_navigation_next{
+	right: -110px;
+}
+div.review-pagination-custom .swiper-pagination-bullet.swiper-pagination-bullet-active{
+	border:1px solid #007aff;
+	background-color: #007aff;
+}
+.swiper-pagination.review-pagination-custom{
+	text-align: right;
+}
+.tour_reviews_block_wraper{
+	position: relative;
+}
+
+
+
+/*===================profile tour slider================*/
+.profile_pagination .swiper-pagination-bullet {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 0;
+    opacity: 1;
+    background: transparent;
+    border-color: transparent;
+    font-family: Lato;
+	font-size: 16px;
+	font-weight: 500;
+	color: #2b2a29;
+   }
+  .profile_pagination .swiper-pagination-bullet-active {
+     color:#fff;
+     border-radius: 0;
+     background-color: #007aff;
+   }
+   .swiper_prof{
+   	padding-bottom: 57px;
+   }
+   .profile_pagination{
+   	text-align: right;
+   	position: relative;
+   	padding: 0 30px;
+   
+   }
+   .wrap_pagination_pro{
+   	position: relative;
+    padding-top: 27px;
+    text-align: right;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   }
+   .pagination_pro_next, .pagination_pro_prev{
+   	cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 3px;
+   }
+   .profile_pagination span{
+   		margin:0 10px;
+   }
+/*=====================================SINGLE TOUR PAGE======================*/
+.tour_mobile_reserve{
+	text-align: center;
+	padding-top: 40px;
+}
+.tour_mobile_reserve .tour_price_detail,.tour_mobile_reserve .tour_price, .tour_mobile_reserve .tour_price_heading{
+	color:#2b2a29;
+	padding-top: 10px;
+}
+.tour_mobile_reserve .tour_resefve.tour_reserve{
+	    margin-top: 40px;
+}
+.tour_mobile_reserve .share_circles, .tour_bottom_sharing .share_circles{
+	stroke:#2f80ed;
+}
+.tour_mobile_reserve .social_sharing_tour:hover .share_circles, .tour_bottom_sharing .social_sharing_tour:hover .share_circles{
+	fill:#2f80ed;
+}
+.tour_mobile_reserve .heart_icon:hover .hearth_path, .tour_bottom_sharing .heart_icon:hover .hearth_path{
+	fill:#2f80ed;
+}
+.tour_mobile_reserve .tour_mail_icon:hover .mail_icon_back, .tour_bottom_sharing .tour_mail_icon:hover .mail_icon_back{
+	fill:#2f80ed;
+}
+div.tour_mobile_reserve .mail_icon_lines, .tour_bottom_sharing  .mail_icon_lines{
+	fill:#2f80ed;
+}
+.tour_mobile_reserve .tour_mail_icon:hover .mail_icon_lines, .tour_bottom_sharing  .tour_mail_icon:hover .mail_icon_lines{
+	fill:#fff;
+}
+.tour_mobile_show{display: none;}
+.woocommerce.order_tour_woocommerce{
+	display: none;
+}
+img.order_edit_image{
+	margin-left:12px;
+}
+.order_alert_message{
+	position: fixed;
+	top: 30px;
+	background-color: #fff;
+	z-index: 999;
+	left:0;
+	right:0;
+	width: 100%;
+
+}
+.order_warning_message{
+	color: red;
+	padding: 10px 0;
+	text-align: center;
+}
+/*========================== register tour ==========================*/
+	.register_page{
+			width: 100%;
+			padding: 20vh 0 20vh 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		}
+		.register_page_wraper{
+			box-sizing: border-box;
+			position: relative;
+			width: 450px;
+			padding: 47px 75px 55px 75px;
+			background-color: #fff;
+		}
+		.register_logo{
+			text-align: center;
+		}
+		.register_logo img{
+			width:110px;
+		}
+		.register_heading{
+			padding-top: 45px;
+			text-transform: uppercase;
+			font-family: Lato;
+			font-size: 24px;
+			font-weight: bold;
+			color: #2f80ed;
+		}
+		.register_label_name{
+			  font-family: Lato;
+			  font-size: 14px;
+			  font-weight: bold;
+			  color: #bdbdbd;
+			  padding-top: 20px;
+		}
+		.register_input_field{
+			width: 100%;
+			background-color: transparent;
+			border:none;
+			padding: 7px 0;
+			margin-top: 15px;
+			border-bottom: 1px solid #bdbdbd;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: normal;
+			color: #2b2a29;
+		}
+		.register_input_field:focus{
+			outline: none;
+			border-bottom: 1px solid #bdbdbd;
+		}
+		.register_or{
+			  font-family: Lato;
+			  font-size: 16px;
+			  font-weight: normal;
+			  text-align: center;
+			  color: #bdbdbd;
+			  padding: 30px 0 15px 0;
+		}
+		.register_social_heading{
+			  font-family: Lato;
+			  font-size: 16px;
+			  font-weight: normal;
+			  color: #2b2a29;
+			  text-align: center;
+		}
+		.register_account{
+			width: 100%;
+		    box-sizing: border-box;
+		    height: 56px;
+		    padding: 18px 0 18px 0;
+		    background-color: #2f80ed;
+		    text-align: center;
+		    color: #fff; 
+		    font-family: Lato;
+			font-size: 18px;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		.register_bottom_login{
+			text-align: center;
+			font-family: Lato;
+			font-size: 16px;
+			font-weight: normal;
+			color: #2b2a29;
+			padding-top: 25px;
+		}
+		.register_bottom_login a{
+			font-weight: bold;
+  			color: #2f80ed;
+		}
+		.woocommerce form p.form-row-first, .woocommerce form .form-row-first{
+			width: 100%;
+		}
+		.register_back{
+			position: absolute;
+			cursor: pointer;
+			top: -27px;
+			color: #fff;
+			left: 0;
+			display: flex;
+		}
+		.register_arrow{
+			display: inline-block;
+			margin-right: 15px;
+		}
+/*=================REGISTER TOUR======================*/
+		.tour_register{
+			display: none;
+		}
+		.tour_login, .tour_register{
+			width: 100%;
+		}
+		.register_page .woocommerce form.login, .register_page .woocommerce form.register{
+			border:none;
+			padding: unset;
+			margin: unset;
+			text-align: unset;
+			border-radius: unset;
+		}
+		.register_page .woocommerce-form-row label{
+			font-family: Lato;
+			  font-size: 14px;
+			  font-weight: bold;
+			  color: #bdbdbd;
+			  padding-top: 20px;
+		}
+		.register_page .woocommerce-form-row input{
+			width: 100%;
+			background-color: transparent;
+			border:none;
+			padding: 7px 0;
+			margin-top: 15px;
+			border-bottom: 1px solid #bdbdbd;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: normal;
+			color: #2b2a29;
+		}
+		.register_page .woocommerce form .register_confirm_password{
+
+		}
+		.register_page .woocommerce form .form-row input.input-text{
+			padding: 7px 0;
+			margin-top: 15px;
+		}
+		.register_page .woocommerce form.login #password, .register_page .woocommerce-form-row input#reg_password, .register_page .register_confirm_password{
+			color: #2f80ed;
+		    font-size: 21px;
+		    letter-spacing: 4px;
+		    padding: 5px 0;
+		}
+		.register_page .woocommerce button.button, .register_page .woocommerce button.button:disabled{
+			width: 100%;
+		    box-sizing: border-box;
+		    height: 56px;
+		    padding: 18px 0 18px 0;
+		    background-color: #2f80ed;
+		    text-align: center;
+		    font-family: Lato;
+		    font-size: 18px;
+		    font-weight: bold;
+		    color: #ffffff;
+		    border-radius: 0;
+		}
+		.register_page .woocommerce form .form-row .required{
+			font-family: Lato;
+			  font-size: 14px;
+			  font-weight: bold;
+			  color: #bdbdbd;
+			  padding-top: 20px;
+		}
+		.register_show_login{
+			font-weight: bold;
+  			color: #2f80ed;
+  			cursor: pointer;
+		}
+		.register_social_wrap{
+			padding: 20px 35px;
+			display: flex;
+			justify-content: space-around;
+		}
+		#rememberme + span{
+			color:#ccc;
+		}
+		.link_to_register_block{
+			text-align: center;
+			cursor: pointer;
+		}
+		.lost_password:hover, .link_to_register_block:hover{
+			text-decoration: underline;
+		}
+		.lost_password{
+			text-align: center;
+			text-decoration: none;
+			padding-top: 20px;
+		}
+		button.button[type="submit"][name="register"]:disabled{
+			opacity: 1 !important;
+			color:#fff !important;
+		}
+/*=================================================================*/
+/*==========================PROFILE PAGE===========================*/
+/*=================================================================*/
+		.site_content.profile_page_wrap{
+			background-color: #fff;
+			max-width: 1300px;
+			width: 100%;
+		}
+			.profile_page{
+		width: 100%;
+		padding: 200px 0 100px 0;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.site_content{
+		width: 1300px;
+		margin:0 auto;
+	}
+	.profile_page_wrap{
+		background-color: #fff;
+		padding: 25px 0px;
+	}
+	.profile_heading_wrap{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		padding: 0px 37px;
+
+	}
+	.profile_tab{
+		width:20%;
+		box-sizing: border-box;
+		padding: 15px 0;
+		text-align: center;
+		font-family: Lato;
+		font-size: 18px;
+		font-weight: normal;
+		color: #2b2a29;
+	}
+	.profile_tab span{
+		display: block;
+		font-family: Lato;
+		font-size: 18px;
+		font-weight: normal;
+		color: #2b2a29;
+	}
+	.profile_tab.active{
+		font-weight: bold;
+  		color: #2f80ed;
+  		border-bottom: 3px solid #2f80ed;
+  		position: relative;
+  		z-index: 9;
+	}
+	.profile_page hr{
+		position: relative;
+	    opacity: 0.4;
+	    background-color: #ccc;
+	    z-index: 5;
+	}
+/*============personal info ================*/
+.profile_personal_info{
+	
+}
+.profile_personal_info{
+	max-width: 1000px;
+	width: 100%;
+	padding: 100px 200px 50px 200px;
+	padding: 0 0 0 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+.profile_personal_left{
+	width: 55%;
+	box-sizing: border-box;
+}
+.profile_personal_right{
+	width: 45%;
+	box-sizing: border-box;
+}
+.profile_personal_left .order_tour_slide2_block{
+	display: flex;
+	align-items: center;
+}
+.profile_personal_left .order_tour_slide2_block h4{
+	width: 140px;
+}
+#save_personal_data{
+	font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 16px 70px;
+    margin-top: 30px;
+    text-decoration: none;
+    background-color: #2f80ed;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+.save_button{
+	width: 100%;
+	text-align: right;
+}
+.profile_tab{
+	cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile_content_tab{
+	display: none;
+}
+.profile_content_tab.active{
+	display: block;
+}
+.profile_tab.active span{
+	color: #2f80ed;
+}
+.profile_tab .profile_icon .profile_icon_fill{
+	fill:#2B2A29;
+}
+.profile_tab.active .profile_icon .profile_icon_fill{
+	fill:#2f80ed;
+}
+.profile_icon{
+	margin-right: 12px;
+}
+/*============================================*/
+/*================My ORDERS block=============*/
+/*============================================*/
+		.list_tours{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		.list_tours_filter{
+			width: 20%;
+		}
+		.list_tour_content{
+			width: 79%;
+		}
+		.list_tours_filter_item{
+			margin-top: 20px;
+			height: 40px;
+			display: flex;
+			cursor: pointer;
+			align-items: center;
+			padding-left: 33px;
+			border-left:3px solid transparent;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: 500;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			color: #2b2a29;
+		}
+		.list_tours_filter_item.list_active{
+			border-left:3px solid #2f80ed;
+			font-weight: bold;
+  			color: #2f80ed;
+		}
+		.list_tour_content_item{
+			width: 100%;
+			border: 1px solid  #e0e0e0;
+			border-left: 3px solid #2f80ed;
+			height: 110px;
+			margin: 7px 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.profile_bookmarks{
+			width: 100%;
+			padding: 50px 20% 60px 20%;
+			text-align: center;
+			font-family: Lato;
+			font-size: 16px;
+			font-weight: normal;
+			letter-spacing: normal;
+			color: #2b2a29;
+		}
+		.list_tour_item_name{
+			width: 40%;
+			height: 70px;
+		}
+		.list_tour_item_city_day{
+			width: 20%;
+			height: 70px;
+			border-left: 1px solid #e0e0e0;
+		}
+		.list_tour_item_price{
+			width: 20%;
+			height: 70px;
+			border-left: 1px solid #e0e0e0;
+		}
+		.list_tour_item_view_order{
+			text-decoration: none;
+			width: 20%;
+			height: 70px;
+			border-left: 1px solid #e0e0e0;
+		}
+		.list_tour_item_view_order a{
+			text-decoration: none;
+			 font-family: Lato;
+			  font-size: 18px;
+			  font-weight: bold;
+			  font-style: normal;
+			  font-stretch: normal;
+			  line-height: normal;
+			  letter-spacing: normal;
+			  color: #2f80ed;
+		}
+		.list_tour_item_name{
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			padding-left: 33px;
+		}
+		.list_tour_item_parent_name{
+			font-family: Lato;
+			font-size: 24px;
+			font-weight: bold;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			color: #2f80ed;
+			padding-bottom: 15px;
+		}
+		.list_tour_item_child_name{
+			font-family: Lato;
+			font-size: 16px;
+			font-weight: bold;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			color: #2b2a29;
+		}
+		.list_tour_item_city_day{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.list_tour_item_city_day span{
+			  font-family: Lato;
+			  font-size: 18px;
+			  font-weight: bold;
+			  font-style: normal;
+			  font-stretch: normal;
+			  line-height: normal;
+			  letter-spacing: normal;
+			  color: #2b2a29;
+			  display: inline-block;
+			  padding: 0 5px;
+		}
+		.list_tour_item_price{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Lato;
+			font-size: 24px;
+			font-weight: bold;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			color: #2b2a29;
+		}
+		.list_tour_item_view_order{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: bold;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			color: #2f80ed;
+		}
+		.list_requeste_quote{
+			display: none;
+		}
+		.list_requeste_quote.active_contant{
+			display: block;
+		}
+		.list_advanced_orders{
+			display: none;
+		}
+		.list_advanced_orders.active_contant{
+			display: block;
+		}
+		.my_tours_wrap_content{
+			padding: 0 45px;
+		}
+		.list_order_item{
+			display: none;
+		}
+		.request_order{
+			display: block;
+		}
+		.mobile_tab_orders{
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: 500;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			color: #2b2a29;
+			height: 50px;
+			line-height: 45px;
+			width: 90%;
+			text-align: center;
+			margin: 5px auto 0 auto;
+			position: relative;
+  			border: solid 1px #e0e0e0;
+  			display: none;
+		}
+		.mobile_tab_orders.mobile_tab_orders_active{
+		  font-weight: bold;
+		  color: #2f80ed;
+		}
+		.mobile_tab_orders_arrow{
+			position: absolute;
+		    top: 10px;
+		    right: 6px;
+		    width: 25px;
+		    transition: .4s;
+		    transform-origin: center;
+		}
+		.mobile_tab_orders.mobile_tab_orders_active .mobile_tab_orders_arrow{
+			transform: rotate(180deg);
+			transition: .4s;
+		}
+/*=======================================================*/
+/*========================WISH LIST======================*/
+/*=======================================================*/
+.profile_content_tab_wrap{
+	width: 100%;
+	max-width: 1170px;
+	margin:0 auto;
+}
+.prof_bookmarks{
+	width: 90%;
+	max-width: 600px;
+	margin:0 auto;
+	text-align: center;
+	font-family: Lato;
+	font-size: 16px;
+	font-weight: normal;
+	padding: 50px 0;
+	color: #2b2a29;
+}
+/*=======================================================*/
+/*====================FAVORITE BUTTON====================*/
+/*=======================================================*/
+a.simplefavorite-button.active{
+	opacity: 1;
+}
+.white_favorite .heart_icon .hearth_path{
+
+}
+.product_share_wrap{
+	padding: 14px 0;
+	position: fixed;
+	background-color: #2f80ed;
+	bottom: 0;
+	left:0;
+	right: 0;
+	width: 100%;
+	display: none;
+	z-index: 999;
+    justify-content: center;
+
+}
+.close_share{
+	color: #fff;
+	font-weight: 700;
+	
+	font-size: 16px;
+	text-transform: uppercase;
+	position: fixed;
+	bottom: 40px;
+	right: 10px;
+	z-index: 1000;
+	cursor: pointer;
+}
+.profile_tab_name_mobile{
+		display: none;
+		text-align: center;
+		font-family: Lato;
+		font-size: 18px;
+		font-weight: bold;		 
+		color: #2f80ed;
+	}
+.simplefavorite-button.active .hearth_path{
+	fill: #2f80ed;
+	stroke: #2f80ed;
+}
+.simplefavorite-button .hearth_path{
+	fill: transparent;
+	stroke: #2f80ed;
+}
+/*=========================================================*/
+/*=======================SERVICES==========================*/
+/*=========================================================*/
+.profile_services_wrap{
+	width:100%;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+/*=========================================================*/
+/*=====================COMPANY=============================*/
+/*=========================================================*/
+.company_page_tab_heading .company_icon .company_icon_fill{
+	fill:#2b2a29;
+}
+.company_page_tab_heading.tab_active .company_icon .company_icon_fill{
+	fill:#2f80ed;
+}
+.footer_link_account{
+	  font-family: Lato;
+	  font-size: 16px;
+     font-weight: normal;
+	  color: #ffffff;
+	  text-decoration: none;
+}
+@media only screen and (max-width: 960px) {
+.black_favorite .simplefavorite-button .hearth_path, .simplefavorite-button .hearth_path{
+	fill: transparent;
+	stroke: #2f80ed!important;
+}
+div.profile_tab span{
+		display: none;
+	}
+	.profile_horizontal{
+		display: none;
+	}
+	.profile_tab_name_mobile{
+		display: block;
+	}
+	.profile_personal_info{
+		flex-direction: column;
+		align-items: center;
+		padding-left: 10px;
+	}
+	.my_tours_wrap_content{
+		padding: 0;
+	}
+	.profile_personal_right, .profile_personal_left{
+		width: 500px;
+	}
+	.prof_bookmarks{
+		padding-top: 20px;
+	}
+	.list_tour_content_item{
+		width: 90%;
+		border-left: 1px solid #e0e0e0;
+    	border-top: 3px solid #2f80ed;
+    	flex-direction: column;
+    	margin: 10px auto;
+    	height: 197px;
+	}
+	.list_tour_item_city_day{
+		width: 100%;
+		border-left: none;
+		display: none;
+	}
+	.list_tour_item_price{
+		width: 100%;
+		color: #2f80ed;
+		border-left: none;
+	}
+	.wrap_pagination_pro{
+		justify-content: center;
+	}
+	.list_tour_item_name{
+		text-align: center;
+		padding-top: 30px;
+		padding-left: 0;
+		width: 100%;
+	}
+
+	.list_tour_item_view_order{		
+		display: none;
+	}
+	.list_tours_filter{
+		display: none;
+	}
+	.list_tour_content{
+		width: 90%;
+		margin: 10px auto;	
+	}
+	.mobile_tab_orders + .list_order_item{
+		display: none;
+	}
+	.mobile_tab_orders{
+		display: block;
+	}
+  .profile_page{
+      padding-top: 70px;
+    }
+
+}
+@media only screen and (max-width: 540px) {
+.profile_personal_right, .profile_personal_left{
+		width: 100%;
+	}
+.order_persons_info_birthday{
+	width: 100%!important;
+}
+
+}
