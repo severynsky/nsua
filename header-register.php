@@ -8,4 +8,4 @@
 	<?php wp_head(); ?>
 </head>
 <body>
-	<div class="pleloader_screen"></div>
+	<div class="preloader_screen"></div>

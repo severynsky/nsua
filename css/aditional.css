@@ -1,7 +1,7 @@
 /*=======================================SCROLL ANIMATION========================*/
 .arthide{
-	opacity: 0;
-	transform: translateY(12vh);
+	opacity: 1;
+	transform: translateY(20px);
 	transition: all .5s ease-out;
 }
 .arthide_show{
@@ -614,6 +614,10 @@ img.order_edit_image{
 			letter-spacing: normal;
 			color: #2f80ed;
 			padding-bottom: 15px;
+			width: 320px;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    overflow: hidden;
 		}
 		.list_tour_item_child_name{
 			font-family: Lato;
@@ -799,6 +803,9 @@ a.simplefavorite-button.active{
 	width:100%;
 	max-width: 1170px;
 	margin: 0 auto;
+}
+#profile_services {
+	display: none;
 }
 /*=========================================================*/
 /*=====================COMPANY=============================*/

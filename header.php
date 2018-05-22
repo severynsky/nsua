@@ -7,7 +7,12 @@
 	<?php wp_head(); ?>
 </head>
 <body>
-	<div class="pleloader_screen"></div>
+	<div class="preloader_screen">
+		<div class="preloader-container">
+			<img class="tour_reserve_logo" src="<?php echo get_template_directory_uri(); ?>/img/Logo_black.svg">
+			<h2>loading your experience..</h2>
+		</div>
+	</div>
 	<header class="header">
 	<div class="header_fixed">
 		<div class="header_wraper content_block">

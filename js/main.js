@@ -1,6 +1,6 @@
 (function(){
 	window.addEventListener("load", function() {
-    		jQuery(".pleloader_screen").fadeOut(300);
+    		jQuery(".preloader_screen").fadeOut(300);
 	});
 	function el(a){
 		return document.querySelector(a);

@@ -1,5 +1,5 @@
 (function(){
-	window.addEventListener('load', function(){setTimeout(function(){sartAnima();},500); });
+	window.addEventListener('load', function(){setTimeout(function(){sartAnima();},100); });
 
 function sartAnima(){
 	var scrollController = new ScrollMagic.Controller();
