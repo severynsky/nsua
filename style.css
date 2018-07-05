@@ -230,7 +230,7 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   width: 20%;
   text-align: center; }
   .header_logo img {
-    width: 140px; }
+    width: 100px; }
 
 .header_social {
   display: flex;

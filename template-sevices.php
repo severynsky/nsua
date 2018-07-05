@@ -4,7 +4,7 @@ Template Name: Services Page
 */
 ?>
 <?php get_header() ?>
-<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/setvices.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/services.css">
 
 <!-- =========spiner=========== -->		
 		<div class="order_wraper_spiner"><div class="order_spiner_item"></div></div>
