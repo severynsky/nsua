@@ -13,7 +13,7 @@ Text Domain: next step
 /*=====================================================================================*/
 /*===================================MAIN STYLES=======================================*/
 /*======================================================================================*/
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
 * {
   padding: 0;
@@ -27,7 +27,7 @@ Text Domain: next step
 .content_full{
   width: 100%;}
 .half_block {
-  width: 504px; }
+  width: 600px; }
 
 h1, h2, h3, h4, h5, h6, div, span, li, a, input, textarea {
   font-family: Lato;
@@ -49,7 +49,15 @@ span, div {
 a, p, li {
   font-size: 16px;
   font-weight: normal;
-  color: #2b2a29; }
+  color: #2b2a29;
+  line-height: 1.5;
+}
+p {
+  margin: 10px 0 5px;
+}
+strong {
+  font-weight: 800;
+}
 /*===============================default templates============================*/
 .default_template_header{
   padding-top: 180px;
@@ -141,7 +149,8 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
 .preloader_screen .preloader-container h2 {
     text-align: center;
     font-size: 24px;
-    font-weight: 100;
+    font-weight: 400;
+    opacity: 0.7;
 }
 
 
@@ -914,12 +923,18 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   font-weight: 500;
   color: #2b2a29;
   font-weight: bold;
-  padding-top: 30px; }
-  .single_tour_tag span {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 0 7px;
-    color: #2b2a29; }
+  background-color: #0ac16d;
+  color: white !important;
+  margin-top: 30px;
+  padding: 10px 10px;
+  display: inline-block;
+}
+.single_tour_tag span {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 7px;
+  color: white;
+}
 
 .tour_highlight {
   color: #000;
@@ -1114,7 +1129,7 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
     padding-left: 40px;}
   .tour_include_info ul li {
     color: #2b2a29;
-    padding: 5px 0; }
+    padding: 3px 0; }
   .tour_include_info ul {
     padding-left: 50px; }
 
@@ -1131,7 +1146,7 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
 .single_tour_galery {
   padding-top: 50px; }
   .single_tour_galery .swiper-slide {
-    height: 400px; }
+    height: 550px; }
   .single_tour_galery .galery_heading {
     font-size: 18px;
     font-weight: bold;
@@ -1141,6 +1156,7 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
     .single_tour_galery .galery_heading img {
       padding-right: 15px; }
 .swiper_resize{
+  display: none;
   position: absolute;
   left: 31px;
   width: 24px;
@@ -1221,6 +1237,9 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
         background-color: #6f6f6f; }
       .single_tour_galer_wrap .single_tour_galery_images .single_tour_galer_wrap_right img {
         margin-top: 4px; }
+  .single_tour_galer_wrap_right, .single_tour_galer_wrap_left {
+    cursor: pointer;
+  }
   .single_tour_galer_wrap .single_tour_galery_info {
     padding-left: 90px; }
 
@@ -1263,6 +1282,12 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   padding: 50px 50px; 
   padding-bottom: 140px;
   padding-top: 140px;}
+@media (max-width: 1366px) {
+  .tour_reserve_info {
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+}
 
 .tour_reserve_info_logo {
   display: block; }
@@ -1324,6 +1349,14 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   position: relative;
   margin-top: 80px;
 }
+@media (max-width: 1367px) {
+  .tours_city_block {
+    margin-top: 40px;
+  }
+}
+.tour_city_below_heading p {
+  margin: 5px 0;
+}
 .day_describe_icon{
   display: inline-block;
   background-color: #fff;
@@ -1379,8 +1412,14 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
       color: #ffffff;
       color: #2b2a29;
       width: 80%;
-      padding: 20px 0;
-      padding-left: 45px; }
+      padding: 20px 0 20px 45px;
+      padding-left: ;
+    }
+    @media (max-width: 1367px) {
+      .tours_city_block .tours_city_block_left .tours_city_block_left_wrap .tours_city_block_content {
+        padding: 0px 0 0px 45px;
+      }
+    }
   .tours_city_block div.swiper-slide {
     background-size: cover;
     background-position: center;
@@ -1405,12 +1444,18 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
     background-color: #007aff; }
   .tours_city_block .tours_city_block_right {
     width: 50%;
-    height: 500px;
+    /*height: 500px;*/
     position: relative;
     /*background-color: #456;*/ }
     .tours_city_block_right .swiper-slide {
       width: 100%;
-      height: 500px; }
+      height: 550px;
+    }
+    @media (max-width: 1367px) {
+      .tours_city_block_right .swiper-slide {
+        height: 500px;
+      }
+    }
     .tours_city_block .tours_city_block_right .single_tour_galer_wrap_left {
       position: absolute;
       outline: none;
@@ -1477,7 +1522,13 @@ div.swiper-slide {
   font-weight: bold;
   display: inline-block;
   text-transform: uppercase;
-  color: #2b2a29; }
+  color: #2b2a29;
+}
+@media (max-width: 1366px) {
+  .tours_city_block_subheading {
+    margin-bottom: 10px;
+  }
+}
 .tours_city_block_subheading span{
   font-size: 18px;
   font-weight: bold;
@@ -1523,6 +1574,14 @@ div.swiper-slide {
   .short_city_slider  .swiper-container{
     padding-bottom: 15px;
   }
+  @media (max-width: 1367px) {
+    .swiper-slide_day-description {
+      max-height: 360px;
+      overflow-y: auto;
+      margin: 0 30px 40px 0;
+    }
+  }
+
   .city_tour-button-prev img, .city_tour-button-next img{
     width: 75px;
   }
@@ -1584,6 +1643,9 @@ div.swiper-slide {
     z-index: 5; }
     .short_city_slider .city_tour-button-prev img {
       padding: 0 30px; }
+  .swiper-button-disabled {
+    opacity: 0;
+  }
 
 .short_city_includ_wraper_heading {
   font-size: 24px;
@@ -3096,10 +3158,10 @@ span.pagination_arrow{
 
   .mobile_nav_icon {
     display: none; }
-  .tour_reserve_info { 
+  /*.tour_reserve_info { 
     padding-bottom: 100px;
     padding-top: 100px;
-  }
+  }*/
 }
 @media only screen and (max-width: 1240px) {
   .content_block {
@@ -3484,7 +3546,7 @@ div.swiper-button-next.swiper_next.review_navigation_next{
   margin:3px 1px;
 }
 .single_tour_galery .swiper-slide{
-  height: 500px;
+  height: 550px;
 }
 .tour_mobile_hide{display: none;}
 

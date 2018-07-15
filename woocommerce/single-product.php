@@ -449,8 +449,13 @@ if( have_rows('tour_stages_item') ):
 								$day_item = 1;
 							    while ( have_rows('stage_slider_content') ) : the_row();
 						?>						
-						<div class="swiper-slide slider_image_position" data-hash="slide<?php echo $slide_j; ?>"><div class="day_describe_icon"><img src="<?php echo get_template_directory_uri(); ?>/img/tour/sun icon.svg"><span>DAY<?php  echo " ".$day_item."/".$slide_f; ?></span></div><p>
-							<?php the_sub_field('stage_slider_content_item'); ?></p></div>
+						<div class="swiper-slide slider_image_position" data-hash="slide<?php echo $slide_j; ?>"><div class="day_describe_icon"><img src="<?php echo get_template_directory_uri(); ?>/img/tour/sun icon.svg"><span>DAY<?php  echo " ".$day_item."/".$slide_f; ?></span></div>
+							<div class="swiper-slide_day-description">
+								<p>
+									<?php the_sub_field('stage_slider_content_item'); ?>
+								</p>
+							</div>
+						</div>
 						<?php
 							$slide_j++;
 							$day_item++;
