@@ -429,6 +429,7 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   right: 0; }
 .header_tour-info .tour_to_favorite {
   text-align: left;
+  margin-top: 24px;
 }
 
 .tour_city_days {
@@ -469,7 +470,8 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
 }
 
 .tour-name_link:hover h2.tour-name {
-  transform: translateY(2px);
+  color: white;
+  text-shadow: 2px 2px 0px black;
 }
 
 .tour_to_favorite {
@@ -977,11 +979,15 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   font-weight: bold;
   color: #fff;
   text-transform: uppercase; }
-
+.tour_price_detail, .tour_price, .tour_price_heading{
+  line-height: 1;
+  margin-top: 0; 
+}
 .tour_price_detail {
   font-size: 18px;
   font-weight: 500;
-  color: #fff; }
+  color: #fff;
+}
 
 .tour_resefve, .buy_button {
   font-size: 18px;
@@ -1016,9 +1022,12 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
 .tour_time_length {
   font-size: 36px;
   font-weight: bold;
-  padding-top: 50px;
+  padding-top: 60px;
   text-transform: uppercase;
-  color: #2b2a29; }
+  color: #2b2a29;
+  text-align: left;
+  padding-left: 20px;
+}
 
   .tour_time_length span {
     font-size: 36px;
@@ -1339,6 +1348,11 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   padding-top: 120px;
   color: #2b2a29;
   text-transform: uppercase; }
+@media (max-width: 1367px) {
+  .tour_days-city_heading {
+    font-size: 38px;
+  }
+}
 
 .tours_city_block {
   display: flex;

@@ -327,7 +327,7 @@ get_header(); ?>
 			<p class="reserve_price"><?php echo $min_price; ?> USD</p>
 			<p class="reserve_price_detail">*per person</p>			
 		</div>		
-			<button class="tour_button_resefve tour_reserve" href="#">Reserve Tour</button>	
+			<button class="tour_resefve tour_reserve" href="#">Reserve Tour</button>	
 		<div class="tour_sharing_block tour_mobile_show tour_bottom_sharing">
 				<span>
 					<svg class="social_sharing_tour" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 width="30px" height="36px" viewBox="-1 -1 32 38" xml:space="preserve">
@@ -520,7 +520,7 @@ endif;
 			<p class="reserve_price"><?php echo $min_price; ?> USD</p>
 			<p class="reserve_price_detail">*per person</p>			
 		</div>		
-			<button class="tour_button_resefve tour_reserve" href="#">Reserve Tour</button>	
+			<button class="tour_resefve tour_reserve" href="#">Reserve Tour</button>	
 		<div class="tour_sharing_block tour_mobile_show tour_bottom_sharing">
 				<span>
 					<svg class="social_sharing_tour" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 width="30px" height="36px" viewBox="-1 -1 32 38" xml:space="preserve">
