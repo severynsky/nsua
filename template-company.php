@@ -67,10 +67,10 @@ Template Name: Company templates
 						<div>							
 								<?php the_field('cooperation_content'); ?>							
 						</div>
-						<button class="company_page_cooperation_button">Contacts</button>						
 					</div>
 					
 				</div>
+				<a href="/contacts" class="company_page_cooperation_button">Contact us!</a>						
 				
 			</div>
 		</div>

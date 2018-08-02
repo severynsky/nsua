@@ -56,7 +56,7 @@
 
 				<?php $regLink = get_field('register_page','option'); ?>
 				<?php if (!is_user_logged_in()) { ?>
-				<a class="header_login_link" href="<?php echo home_url(); ?>/register">Login</a>
+				<a class="header_login_link" href="<?php echo home_url(); ?>/register">Login/Register</a>
 				<?php } else { ?>
 				<div class="header_my_account">
 					<a href="<?php echo home_url(); ?>/profile/" >My Account 

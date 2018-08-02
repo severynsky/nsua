@@ -95,6 +95,8 @@ strong {
     position: fixed;
     box-shadow: 0 2px 4px 0 rgba(43, 42, 41, 0.2);
     top: 0px;
+    height: 72px;
+    padding: 10px 0;
 }
 .nav_top_line, .nav_middle_line, .nav_bottom_line{
     fill:none;
@@ -106,7 +108,7 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   stroke: #000;
 }
 .header_fixed_active .find_black_logo{
-  width: 84px;
+  width: 70px;
 }
 .header_fixed_active .headerMenu a, .header_fixed_active .header_social a{
   color:#2b2a29;
@@ -115,7 +117,11 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
    fill:#2b2a29;
 }
 .header_fixed_active .header_login_link{
-    border: 2px solid #2b2a29;
+    /*border: 2px solid #2b2a29;*/
+    border: 2px solid white;
+}
+.header_fixed_active .header_login_link:hover{
+  color: #2f80ed;
 }
 .preloader_screen {
   position: fixed;
@@ -273,7 +279,8 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
   background-color: transparent;
   transition:.4s;
   font-size: 16px;
-  padding: 8px 30px 12px 30px;
+  /*padding: 8px 30px 12px 30px;*/
+  padding: 7px 30px 10px 30px;
   margin-left: 20px;
   border: 2px solid #fff; }
 .header_login_link:hover{
@@ -2030,12 +2037,27 @@ div.wpcf7-mail-sent-ok{
   flex-wrap: wrap; }
 
 .company_page_content {
-  width: 60%;
+  width: 70%;
   background-color: #fff;
   padding: 60px 20px 70px 50px; }
-
+h4.company_page_tab_name {
+  margin-bottom: 15px;
+}
+.company_page_tab_wraper {
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.company_page_tab_wraper h4{
+  background-color: #2f80ed;
+  padding: 4px 10px;
+  color: white;
+}
+.company_page_tab_wraper ul {
+  padding-left: 30px;
+}
 .company_page_link {
-  width: 40%; }
+  width: 30%; }
   .company_page_link a {
     text-decoration: none; }
   .company_page_link .company_page_link_item {
@@ -2045,6 +2067,10 @@ div.wpcf7-mail-sent-ok{
     text-transform: uppercase;
     padding-left: 150px;
     line-height: 35px; }
+
+@media (max-width: 768px) {
+    
+}
 
 .company_page_tab_head {
   display: none; }
@@ -2077,10 +2103,20 @@ div.wpcf7-mail-sent-ok{
   border: none;
   outline: none;
   background-color: #2f80ed;
+  border: 2px solid #2f80ed;
   cursor: pointer;
   margin: 0;
   margin-top: 40px;
-  width: 200px; }
+  width: 200px;
+  transition: 0.1s;
+  text-decoration: none;
+  text-align: center;
+}
+.company_page_cooperation_button:hover {
+  border: 2px solid #2f80ed;
+  color: #2f80ed;
+  background-color: white;
+}
 
 .company_page_heading {
   font-size: 48px;
@@ -2202,13 +2238,15 @@ div.wpcf7-mail-sent-ok{
   display: none; }
 
 /*color: #2b2a29;*/
+.contacts_page, .company_page, .tour_services {
+  padding-top: 170px !important;
+}
 /*================================================CONTACTS PAGE ================================*/
 .contacts_page {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  padding-top: 180px;
   padding-bottom: 50px;
   background-color: #212121; }
 
@@ -3617,6 +3655,9 @@ h4.tour_mobile_show{display: block; text-align: center;}
 
   .company_page {
     padding-bottom: 0; }
+  .company_page ul {
+    padding-left: 40px;
+  } 
 .company_page_heading{
     text-align: center;
 }
@@ -3767,6 +3808,6 @@ h4.tour_mobile_show{display: block; text-align: center;}
 .static_content_wrap {
     padding-top: 30px;
     max-height: 900px;
-    overflow: auto;
+    overflow-y: auto;
     padding-right: 30px;
 }
