@@ -14,7 +14,7 @@ Template Name: FAQ page
 
 					   $args = array(
 									'post_type' => 'faq',
-									'posts_per_page' => 12,
+									'posts_per_page' => 50,
 									'orderby' => 'date',
 									'paged' => $paged,
 									 'order' => 'DESC' //  ASC
