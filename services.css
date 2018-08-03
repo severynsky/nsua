@@ -843,7 +843,7 @@
 .service_order_heading_step2{
 	display: none;
 }
-.service_order_aditional_info{  
+.service_order_aditional_info p{  
     font-family: Lato;
     font-size: 12px;
     font-weight: normal;

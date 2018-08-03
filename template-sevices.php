@@ -695,9 +695,9 @@ Template Name: Services Page
 
 			
 
-			<p class="service_order_aditional_info">
-					Enjoy the colorful culture of our country along with Next Stop  Ukraine that will befriend and guide you during all the stay. From the East to the West of Ukraine, from the glorious Kiev to the powerful Carpathians, from the magical city of Lviv to the sunny Odessa – only this way you will explore the history and soul of the Ukrainian people.
-				</p>
+			<div class="service_order_aditional_info">
+					<?php the_field('services_aditional_info'); ?>
+				</div>
 			<div class="service_order_button_row">
 				<div class="service_order_button_back">Back</div>
 				<div class="service_order_button_next">Next</div>
