@@ -492,7 +492,7 @@ Template Name: Services Page
 					</div>
 					<div class="service_order_block_accomodation">
 						<div class="service_order_block_info">
-							<p class="service_order_name_value">Wishes</p>
+							<p class="service_order_name_value"><!-- Wishes --></p>
 							<div class="service_order_accomod_wishes"></div>				
 						</div>
 					</div>
