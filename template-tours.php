@@ -34,7 +34,7 @@ if ( $query->have_posts() ) {
 						
 						<span class="tour_city_days"><span><?php the_field('tour_tags_days'); ?></span>|<span><?php the_field('tour_tags_city'); ?></span></span>
 						<?php $post_id = get_the_ID();  $fcet = get_the_category(); ?>
-						<span  class="tour_inclusive">All inclusive</span>						
+						<span  class="tour_inclusive"><?php the_field('tour_category'); ?></span>						
 					</div>
 					<div class="header_tour-name">
 						  <a class="tour-name_link" href="<?php echo get_the_permalink(); ?>"> <h2 class="tour-name"><?php the_title(); ?></h2></a>
@@ -109,7 +109,7 @@ wp_reset_query();
 							<a class="tour-name_link tour_first_link" href="<?php echo get_the_permalink(); ?>">
 								<div class="tour_main-info">									
 									<span class="tour_city_days"><span><?php the_field('tour_tags_days'); ?></span>|<span><?php the_field('tour_tags_city'); ?></span></span>
-									<span  class="tour_inclusive"><?php the_field('tour_tag_inclusiv'); ?></span>	
+									<span  class="tour_inclusive"><?php the_field('tour_category'); ?></span>	
 								</div>
 							</a>
 								<div class="header_tour-name">
