@@ -654,7 +654,7 @@ Template Name: Services Page
 						<h4 class="order_persons_info_sec_info">Sex</h4>
 						<input id="order_tour_male" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'male'){echo 'checked';} ?>  type="radio" name="male">
 						<label class="order_tour_label_radio" for="order_tour_male">Male</label>
-						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) != 'male'){echo 'checked';} ?>  type="radio" name="male">	
+						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'female'){echo 'checked';} ?>  type="radio" name="male">	
 						<label class="order_tour_label_radio" for="order_tour_female">Female</label>					
 					</div>
 					<div class="order_tour_slide2_block">
@@ -666,7 +666,7 @@ Template Name: Services Page
 						<input class="order_persons_info_sec_input order__data_city" type="text" value="<?php echo $user_city; ?>" name="data_city" placeholder="City">						
 					</div>
 					<div class="order_tour_slide2_block">
-						<h4 class="order_persons_info_sec_info">Company Name*</h4>
+						<h4 class="order_persons_info_sec_info">Company Name</h4>
 						<input class="order_persons_info_sec_input order__data_company" type="text" name="data_company" value="<?php echo $user_company; ?>" placeholder="Company Name">						
 					</div>
 					
@@ -706,7 +706,7 @@ Template Name: Services Page
 						<span class="order_customer_block_desc order_customer__city"></span>
 					</div>
 					<div class="order_customer_block_item">
-						<span class="order_customer_block_name order_customer_block_company">Company Name*</span>
+						<span class="order_customer_block_name order_customer_block_company">Company Name</span>
 						<span class="order_customer_block_desc order_customer__company"></span>
 					</div>
 				</div>

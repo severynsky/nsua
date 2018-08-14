@@ -389,6 +389,17 @@
 .tour__tab_transfer_head{
 	display: flex;
 	justify-content: center;
+	position: relative;
+}
+.tour__tab_transfer_head:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	height: 2px;
+	width: 100%;
+	background-color: #bdbdbd;
+
 }
 .tour__tab_transfer_from{
 	width: 128px;
@@ -839,7 +850,6 @@
 }
 .service_order_block_personal{
 	padding-left: 50px;
-	
 }
 .service_order_heading_step2{
 	display: none;
@@ -905,6 +915,12 @@
     text-align: center;
     padding-top: 20px;
     display: none;
+}
+
+
+
+.profile_service_block_desc.profile_service_block_desc_hide{
+	display: none;
 }
 @media only screen and (max-width: 960px) {
 	.tour_services_tab {

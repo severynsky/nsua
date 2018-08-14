@@ -242,7 +242,7 @@
 						<h4 class="order_persons_info_sec_info">Sex</h4>
 						<input id="order_tour_male" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'male'){echo 'checked';} ?> type="radio" name="Sex" value="Male">
 						<label class="order_tour_label_radio" for="order_tour_male">Male</label>
-						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) != 'male'){echo 'checked';} ?> type="radio" name="Sex" value="Female">	
+						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'female'){echo 'checked';} ?> type="radio" name="Sex" value="Female">	
 						<label class="order_tour_label_radio" for="order_tour_female">Female</label>					
 					</div>
 					<div class="order_tour_slide2_block">
@@ -254,7 +254,7 @@
 						<input class="order_persons_info_sec_input order__data_city" type="text" value="<?php echo $user_city; ?>" name="data_city" placeholder="City">						
 					</div>
 					<div class="order_tour_slide2_block">
-						<h4 class="order_persons_info_sec_info">Company Name*</h4>
+						<h4 class="order_persons_info_sec_info">Company Name</h4>
 						<input class="order_persons_info_sec_input order__data_company" type="text" name="data_company" value="<?php echo $user_company; ?>" placeholder="Company Name">						
 					</div>
 				</div>
@@ -351,7 +351,7 @@
 						<span class="order_customer_block_desc order_customer__city"></span>
 					</div>
 					<div class="order_customer_block_item">
-						<span class="order_customer_block_name order_customer_block_company">Company Name*</span>
+						<span class="order_customer_block_name order_customer_block_company">Company Name</span>
 						<span class="order_customer_block_desc order_customer__company"></span>
 					</div>
 
@@ -413,17 +413,28 @@
 					} else if(chId == 'order_ready__book'){
 						jQuery('#place_order').trigger('click');
 					} else {
+						var leader_group = tour_config = "";
+						if(document.querySelector('[name="groupleader"]:checked')){
+							leader_group = document.querySelector('[name="groupleader"]:checked').value;
+						} else {
+							leader_group = "No";
+						}
+						if(document.querySelector('[name="tour_configuration"]:checked')){
+							tour_config = document.querySelector('[name="tour_configuration"]:checked').value;
+						} else {
+							tour_config =  "No";
+						}
 							var data = {
 								action: 'tourrequest',
 								prod_id: '<?php echo $tourID; ?>',
 								size_group: 	document.querySelector('[name="size_group"]').value,
-								groupleader: 	document.querySelector('[name="groupleader"]:checked').value,
+								groupleader: 	leader_group,
 								adult_value: 	document.querySelector('[name="adult_value"]').value,
 								children_value: document.querySelector('[name="children_value"]').value,
 								elderly_value: 	document.querySelector('[name="elderly_value"]').value,
 								single_value: 	document.querySelector('[name="single_value"]').value,
 								double_value: 	document.querySelector('[name="double_value"]').value,
-								tour_configuration: document.querySelector('[name="tour_configuration"]:checked').value,
+								tour_configuration: tour_config,
 								requirement: 	document.querySelector('[name="requirement"]').value,
 
 								first_name: 	document.querySelector('[name="first_name"]').value,
@@ -457,6 +468,17 @@
 				// =========================Create SAVE order====================
 				jQuery('.order_buttons_save').click(function(){
 					jQuery('.order_wraper_spiner').css('display','flex');
+					var leader_group = tour_config = "";
+						if(document.querySelector('[name="groupleader"]:checked')){
+							leader_group = document.querySelector('[name="groupleader"]:checked').value;
+						} else {
+							leader_group = "No";
+						}
+						if(document.querySelector('[name="tour_configuration"]:checked')){
+							tour_config = document.querySelector('[name="tour_configuration"]:checked').value;
+						} else {
+							tour_config = "No";
+						}
 					var savedata = {
 							action: 'saveorder',
 							postId: '<?php echo $tourID ?>',
@@ -466,9 +488,9 @@
 							elderly_value: 	document.querySelector('[name="elderly_value"]').value,
 							single_value: 	document.querySelector('[name="single_value"]').value,
 							double_value: 	document.querySelector('[name="double_value"]').value,
-							group_leader: 	document.querySelector('[name="groupleader"]:checked').value,
+							group_leader: 	leader_group,
 							requirement: 	document.querySelector('[name="requirement"]').value,
-							configuration: document.querySelector('[name="tour_configuration"]:checked').value,
+							configuration: tour_config,
 							first_name: 	document.querySelector('[name="first_name"]').value,
 							last_name: 		document.querySelector('[name="last_name"]').value,
 							phone_number: 	document.querySelector('[name="phone_number"]').value,

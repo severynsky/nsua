@@ -75,6 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			
 			<?php
 			global $wpdb;
+			$tour_limit = 8;
 			$curUser = get_current_user_id();
 
 			// ================Update user meta
@@ -185,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											$services_count = 1;
 											
 										    foreach ($request_order as $post) {
-										    	if($services_item%4 ==1){echo '<div class="swiper-slide"  data-hash="slide'. $services_count.'">'; }
+										    	if($services_item%8 ==1){echo '<div class="swiper-slide"  data-hash="slide'. $services_count.'">'; }
 										    	$order_req = wc_get_order( $post->ID );
 										    	$order_url = $order_req->get_view_order_url();
 
@@ -489,12 +490,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 										    	// echo $order_req->customer_message;
 										   
 
-										    	if($services_item%4 == 0){$services_count++; echo '</div>'; }
+										    	if($services_item%8 == 0){$services_count++; echo '</div>'; }
 										    	$services_item++;												
 										    }
 										    $services_item--;									
 										?>
-										<?php if($services_item%4 > 0 || $services_item < 4){echo '</div>'; }?>
+										<?php if($services_item%8 > 0 || $services_item < 8){echo '</div>'; }?>
 										 </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
 										    <div class="wrap_pagination_pro">
@@ -552,7 +553,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$items = $order_req->get_items();
 												
 												foreach ( $items as $item ) {
-													if($request_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$request_count.'">'; }
+													if($request_item % $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$request_count.'">'; }
 												    $product_name = $item->get_name();
 												    $product_id = $item->get_product_id();
 												    $product_variation_id = $item->get_variation_id();
@@ -561,14 +562,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 												    $parent_meta = get_post_meta($parent_id);
 												
 												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price"> - </div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';												
-												if($request_item%4 == 0){$request_count++; echo '</div>'; }
+												if($request_item% $tour_limit == 0){$request_count++; echo '</div>'; }
 													$request_item++;						    	
 												    
 												}
 										    }
 										    $request_item--;
 										?>
-										<?php if($request_item%4 > 0  || $request_item < 4){echo '</div>'; } ?>
+										<?php if($request_item % $tour_limit > 0  || $request_item < $tour_limit){echo '</div>'; } ?>
 										 </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
 										    <div class="wrap_pagination_pro">
@@ -613,7 +614,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										    		$items = $advance_paid->get_items();
 										    		
 													foreach ( $items as $item ) {
-														if($advance_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$advance_count.'">'; }
+														if($advance_item % $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$advance_count.'">'; }
 													    $product_name = $item->get_name();
 													    $product_id = $item->get_product_id();
 													    $product_variation_id = $item->get_variation_id();
@@ -623,7 +624,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 													
 													echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.($product->get_regular_price() * 0.1).' USD	</div><div class="list_tour_item_view_order"><a href="' . site_url( '/paused-order-tour/' ).'?tour_id=' . $product_variation_id .'">	View/Order</a></div>	</div>';														
-													if($advance_item%4 == 0){$advance_count++; echo '</div>'; }
+													if($advance_item% $tour_limit == 0){$advance_count++; echo '</div>'; }
 														$advance_item++;			    	
 													    
 													}
@@ -631,7 +632,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										    }
 										    $advance_item--;
 										?>
-										<?php if($advance_item%4 > 0 || $advance_item < 4){echo '</div>'; } ?>
+										<?php if($advance_item% $tour_limit > 0 || $advance_item < $tour_limit){echo '</div>'; } ?>
 										 </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
 										    <div class="wrap_pagination_pro">
@@ -674,7 +675,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$items = $order_paid->get_items();
 												 
 												foreach ( $items as $item ) {
-													if($paid_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$paid_count.'">'; }
+													if($paid_item%$tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$paid_count.'">'; }
 												    $product_name = $item->get_name();
 												    $product_id = $item->get_product_id();
 												    $product_variation_id = $item->get_variation_id();
@@ -684,14 +685,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 												
 												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';
 														
-												if($paid_item%4 == 0){$paid_count++; echo '</div>'; }
+												if($paid_item%$tour_limit == 0){$paid_count++; echo '</div>'; }
 													$paid_item++;			    					    	
 												   
 												}
 										    }
 										    $paid_item--;
 										?>	
-											<?php if($paid_item%4 > 0 || $paid_item < 4){echo '</div>'; } ?>
+											<?php if($paid_item% $tour_limit > 0 || $paid_item < $tour_limit){echo '</div>'; } ?>
 																			 
 										    </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
@@ -735,7 +736,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$items = $order_hystory->get_items();
 												
 												foreach ( $items as $item ) {
-													if($history_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$slide_count.'">'; }
+													if($history_item% $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$slide_count.'">'; }
 												    $product_name = $item->get_name();
 												    $product_id = $item->get_product_id();
 												    $product_variation_id = $item->get_variation_id();
@@ -745,14 +746,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 												
 												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';
 													
-												if($history_item%4 == 0){$slide_count++; echo '</div>'; }
+												if($history_item % $tour_limit == 0){$slide_count++; echo '</div>'; }
 													$history_item++;			    	
 												    
 												}
 										    }
 										    $history_item--;
 										?>
-											<?php if($history_item%4 > 0 || $history_item < 4){echo '</div>'; } ?>
+											<?php if($history_item% $tour_limit > 0 || $history_item < $tour_limit){echo '</div>'; } ?>
 																			 
 										    </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
@@ -798,7 +799,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									$items = $order->get_items();
 									
 									foreach ( $items as $item ) {
-										if($pause_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$pause_count.'">'; }
+										if($pause_item% $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$pause_count.'">'; }
 									    $product_name = $item->get_name();
 									    $product_id = $item->get_product_id();
 									    $product_variation_id = $item->get_variation_id();
@@ -808,13 +809,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 									
 									echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.home_url().'/order-tour/?tour_id='. $product_variation_id.'&order='.$post->ID .'">	View/Order</a></div>	</div>';
-									if($pause_item%4 == 0){$pause_count++; echo '</div>'; }
+									if($pause_item% $tour_limit == 0){$pause_count++; echo '</div>'; }
 										$pause_item++;
 									}
 							    }
 							    $pause_item--;
 							?>	
-								<?php if($pause_item%4 > 0 || $pause_item < 4){echo '</div>'; } ?>
+								<?php if($pause_item % $tour_limit > 0 || $pause_item < $tour_limit){echo '</div>'; } ?>
 											   								 
 										    </div> 
 										    <!--  End Swiper wraper  -->
@@ -848,19 +849,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$favorite_count = 1;
 						
 						foreach ($favorite_post as $key => $value) {
-							if($favorite_items%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$favorite_count.'">'; }
+							if($favorite_items% $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$favorite_count.'">'; }
 							$producte = new WC_Product_Variable( $value );
 							$minPrice = $producte->get_variation_regular_price( 'min');
 							$minPrice = explode('.', $minPrice)[0];
 						
 							echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($value) .'</h3>												</div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $value ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $value ).'</span>				</div>			<div class="list_tour_item_price">'.$minPrice.' USD											</div><div class="list_tour_item_view_order"><a href="'.get_permalink($value).'">	View/Order</a></div>										</div>';
-						if($favorite_items%4 == 0){$favorite_count++; echo '</div>'; }
+						if($favorite_items% $tour_limit == 0){$favorite_count++; echo '</div>'; }
 						$favorite_items++;							
 						}
 					?>
 						<?php
 							$favorite_items--;	
-						 if($favorite_items%4 > 0 || $favorite_items < 4){echo '</div>'; } ?>
+						 if($favorite_items% $tour_limit > 0 || $favorite_items < $tour_limit){echo '</div>'; } ?>
 										   								 
 								</div> 
 								<!--  End Swiper wraper  -->
