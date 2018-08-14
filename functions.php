@@ -223,6 +223,7 @@ function create_order(){
 				$double_value = sanitize_text_field($_POST['double_value']);
 				$requirement = sanitize_text_field($_POST['requirement']);
 				$method_buy = sanitize_text_field($_POST['method_buy']);
+				$twin_value =  sanitize_text_field($_POST['twin_value']);	
 
 	    		$default_args = array(
 					'status'        => 'wc-request',
@@ -270,6 +271,7 @@ function create_order(){
 			    $note .= "Elderly: " . $elderly_value . "\n";
 			    $note .= "Single apartament: " . $single_value . "\n";
 			    $note .= "Double apartament: " . $double_value . "\n";
+			    $note .= "Twin apartament: " . $twin_value . "\n";
 			    $note .= $tour_configuration . "\n";
 			    $note .= "Requirement: " . $requirement . "\n";
 
@@ -324,7 +326,7 @@ function service_order(){
 	    		$apartament = 		sanitize_text_field($_POST['apartament']);
 	    		$other_accomo = 	sanitize_text_field($_POST['other_accomo']);
 	    		$transfer_from = 	sanitize_text_field($_POST['transfer_from']);
-	    		$transfer_tol = 	sanitize_text_field($_POST['transfer_to']);
+	    		$transfer_to = 	sanitize_text_field($_POST['transfer_to']);
 	    		$guide = 			sanitize_text_field($_POST['guide']);
 	    		$special_message = 	sanitize_text_field($_POST['special_message']);
 
@@ -488,7 +490,8 @@ function order_save(){
 	$double =  $_POST['double_value'];
 	$requirement =  $_POST['requirement'];
 	$leader =  $_POST['group_leader'];
-	$configure = $_POST['configuration'];	
+	$configure = $_POST['configuration'];
+	$twin =  $_POST['twin_value'];	
 
 
 	global $woocommerce;
@@ -546,6 +549,7 @@ function order_save(){
 			    $note .= "Elderly: " . $elderly . ";\n";
 			    $note .= "Single: " . $single . ";\n";
 			    $note .= "Double: " . $double . ";\n";
+			    $note .= "Twin: " . $twin . ";\n";
 			    $note .= "Requirement: " . $requirement . ";\n";
 			    $note .= "Leader: " . $leader . ";\n";
 			    $note .= "Configuration: " . $configure . ";\n";			   
