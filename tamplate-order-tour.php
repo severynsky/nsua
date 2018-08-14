@@ -190,6 +190,10 @@
 							<div class="order_rooms_info_double">
 								<h5 class="order_rooms_info_name">Double</h5>
 								<input class="order_rooms_info_quantity order_double_quantity" type="number" name="double_value" placeholder="00" value="<?php echo trim($double_s); ?>">
+							</div>
+							<div class="order_rooms_info_double">
+								<h5 class="order_rooms_info_name">Twin</h5>
+								<input class="order_rooms_info_quantity order_twin_quantity" type="number" name="twin_value" placeholder="00" value="">
 							</div>						
 						</div>					
 					</div>
@@ -290,11 +294,15 @@
 						<h5 class="order_partipiant_info_heading order__rooms_heading">Amount of rooms by capacity</h5>
 						<div class="order_information_block_item">
 							<span class="">Single</span>
-							<span class="order_information_number order_single_room">5</span>
+							<span class="order_information_number order_single_room"></span>
 						</div>
 						<div class="order_information_block_item">
 							<span class="">Double</span>
-							<span class="order_information_number order_double_room">7</span>
+							<span class="order_information_number order_double_room"></span>
+						</div>	
+						<div class="order_information_block_item">
+							<span class="">Twin</span>
+							<span class="order_information_number order_twin_room"></span>
 						</div>												
 					</div>
 
@@ -394,6 +402,7 @@
 (function(){
 	// =========================Create REQUEST order====================
 				jQuery('.order__make_order').click(function(){
+					// debugger;
 					var chId = jQuery('.order_ready__make_step input[name="method_buy"]:checked').attr('id');
 					jQuery('.order_wraper_spiner').css('display','flex');
 					if(chId == 'order_ready__buy'){						
@@ -429,6 +438,7 @@
 								data_city: 		document.querySelector('[name="data_city"]').value,
 								data_company: 	document.querySelector('[name="data_company"]').value,
 								method_buy: 	document.querySelector('[name="method_buy"]').value,
+								twin: document.querySelector('.order_twin_quantity[name="twin_value"]').value,
 
 							}; 
 							jQuery.post({ url:MyAjax.ajaxurl, data:data, success:function(response) {						
@@ -471,6 +481,7 @@
 							data_city: 		document.querySelector('[name="data_city"]').value,
 							data_company: 	document.querySelector('[name="data_company"]').value,
 							method_buy: 	document.querySelector('[name="method_buy"]').value,
+							twin: document.querySelector('.order_twin_quantity[name="twin_value"]').value,
 							//orderData: jQuery('.order_tour_form').serialize(),
 						};
 
@@ -534,7 +545,7 @@
 					email = true;
 				} 
  
-			    var regex = new RegExp("^[0-9\+]{1,}[0-9\-]{3,15}$");
+			    var regex = new RegExp("^[0-9\+]{1,}[0-9\- ]{3,15}$");
 			    phone = regex.test(jQuery('.order__data_phone').val()); 
 
 			    if(jQuery('.order__data_firstname').val() == ""){
@@ -601,6 +612,7 @@
 				var requiremen = jQuery('.order_special_requirements_area').val();
 				var leader = jQuery('#group_leader').val();
 				var configuration = jQuery('#order_tour_configuring_info').val();
+				var twin = document.querySelector('.order_twin_quantity[name="twin_value"]').value;
 
 				if(document.querySelector('#group_leader').checked){
 					El('#order_information_group_leader').checked = true;
@@ -620,6 +632,8 @@
 				repEl('.oder_elderly_info', '.order_elderly_quantity');
 				repEl('.order_single_room', '.order_single_quantity');
 				repEl('.order_double_room', '.order_double_quantity');
+				repEl('.order_twin_room', '.order_twin_quantity');
+				
 				// repEl('.order_special_requirements_desc', '.order_special_requirements_area');			
 
 
@@ -632,7 +646,7 @@
 				El('.order_customer__country').innerText = country;
 				El('.order_customer__city').innerText = city;
 				El('.order_customer__company').innerText = company;
-				El('.order_customer__sex').innerText 
+				// El('.order_customer__sex').innerText = "";
 
 				var tour_s = '';
 				if(document.getElementById("order_tour_male").checked){
@@ -658,7 +672,7 @@
 				jQuery('#billing_month_birthday').val(jQuery('.order_persons_birthday_mounth').val());
 				jQuery('#billing_year_birthday').val(jQuery('.order_persons_birthday_year').val());
 
-				jQuery('#order_comments').val(''+leader+'; '+configuration+'; Birthday:'+custBirthday+';  Sex:'+tour_s+';  Group size:'+groupSize+'; Adults:'+adult+'; Children:'+kids+'; Elderly:'+elderly+'; Single:'+single+'; Double:'+double+'; Special requirements:'+requiremen+'');
+				jQuery('#order_comments').val(''+leader+'; '+configuration+'; Birthday:'+custBirthday+';  Sex:'+tour_s+';  Group size:'+groupSize+'; Adults:'+adult+'; Children:'+kids+'; Elderly:'+elderly+'; Single:'+single+'; Double:'+double+'; Twin:'+twin+'; Special requirements:'+requiremen+'');
 
 				jQuery('.order_tour_slide3, .order_buttons_back, .order__make_order').css('display', 'block');
 				jQuery('.order_tour_slide2, .order_tour_slide1, .order_buttons_quit_quit, .order__make_next').css('display', 'none');
