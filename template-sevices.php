@@ -161,6 +161,10 @@ Template Name: Services Page
 									<p>Double</p>
 									<input type="number" name="amount_room_two" placeholder="00">
 								</div>
+								<div class="amount_room_input_field amount_room_double">
+									<p>Twin</p>
+									<input type="number" name="amount_room_twin" placeholder="00">
+								</div>
 								<div class="amount_room_input_field amount_room_guest">									
 								 <input class="guide__label_select" type="number" id="accomodation_guest_label_select" placeholder="Guests Amount">						
  
@@ -217,7 +221,22 @@ Template Name: Services Page
 							</div>
 							<p class="amount_room_capacity">Amount of rooms by capacity</p>
 							<div class="amount_room_wraper">
-								<div class="amount_room_input_field amount_room_single"><p>Rooms</p><input type="number" name="amount_room_one" placeholder="00"></div>														
+								<div class="amount_room_input_field amount_room_single">
+									<p>Rooms</p>
+									<input type="number" name="amount_room_one" placeholder="00">
+								</div>
+								<div class="amount_room_input_field">
+									<p>Single</p>
+									<input type="number" name="amount_bed_single" placeholder="00">
+								</div>
+								<div class="amount_room_input_field">
+									<p>Double</p>
+									<input type="number" name="amount_bed_double" placeholder="00">
+								</div>
+								<div class="amount_room_input_field">
+									<p>Twin</p>
+									<input type="number" name="amount_bed_twin" placeholder="00">
+								</div>														
 							</div>
 
 						</div>
@@ -226,8 +245,9 @@ Template Name: Services Page
 
 						<div class="tab_accomodation_head_content_other">
 							<p class="tab_guide_wrap_hint"></p>
+							<p class="amount_room_capacity">Special request</p>
 							<div class="tab_guide_wrap_message_wrap">
-								<textarea class="tab_guide_wrap_message" rows="5" cols="45" name="accomodation_other"></textarea>
+								<textarea class="tab_guide_wrap_message" rows="5" cols="45" name="accomodation_other" placeholder=""></textarea>
 							</div>
 						</div>
 					</div>
@@ -339,7 +359,7 @@ Template Name: Services Page
 								</div>
 
 								<div class="taransfer_from_select taransfer_to_date">							
-									<input class="guide__label_select service_tour_datepicker" type="text" placeholder="Departure date">   
+									<input class="guide__label_select service_tour_datepicker" type="text" placeholder="Arrival date">   
 								</div>
 
 								<div class="taransfer_from_select taransfer_to_passengers">									   
@@ -492,7 +512,7 @@ Template Name: Services Page
 					</div>
 					<div class="service_order_block_accomodation">
 						<div class="service_order_block_info">
-							<p class="service_order_name_value"><!-- Wishes --></p>
+							<p class="service_order_name_value"><!--Wishes--></p>
 							<div class="service_order_accomod_wishes"></div>				
 						</div>
 					</div>
