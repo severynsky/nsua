@@ -552,7 +552,7 @@ img.order_edit_image{
 			border: 1px solid  #e0e0e0;
 			border-left: 3px solid #2f80ed;
 			height: 110px;
-			margin: 7px 0;
+			margin: 14px 0 0 0;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -570,6 +570,23 @@ img.order_edit_image{
 		.list_tour_item_name{
 			width: 40%;
 			height: 70px;
+		}
+		.list_tour_item_name.services_tour_item_name{
+			width: 30%;
+		}
+		.services_tour_tag{
+			width:50%;
+			height: 70px;
+			text-transform:uppercase;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			border-left: 1px solid #e0e0e0;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: bold;
+			font-style: normal;
+			color: #2b2a29;
 		}
 		.list_tour_item_city_day{
 			width: 20%;
@@ -805,6 +822,75 @@ a.simplefavorite-button.active{
 	margin: 0 auto;
 }
 #profile_services {}
+
+.profile_order_block{
+	border: 1px solid #e0e0e0;
+	border-left: 3px solid #2f80ed;
+}
+.profile_order_block .service_order_name_value{
+	font-weight: bold;
+	font-size: 14px;
+}
+.profile_order_block .service_order_block_item_wrap{
+	padding: 20px 10px 20px 33px;
+}
+.profile_order_block .profile_service_accomodation_row1, .profile_order_block .profile_service_accomodation_row2, .profile_order_block .profile_service_accomodation_row3, .profile_order_block .profile_service_accomodation_row4{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.profile_order_block .service_order_value_item p, .profile_order_block .service_order_value_item span{
+	font-weight: 500;
+	font-size: 16px;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(1), .profile_service_accomodation_row2 .service_order_block_info:nth-child(1){
+	width: 27%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(2), .profile_service_accomodation_row2 .service_order_block_info:nth-child(2){
+	width: 11%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(3), .profile_service_accomodation_row2 .service_order_block_info:nth-child(3){
+	width: 24%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(4), .profile_service_accomodation_row2 .service_order_block_info:nth-child(4){
+	width: 10%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(5), .profile_service_accomodation_row2 .service_order_block_info:nth-child(5){
+	width: 28%;
+}
+
+
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(1){
+	width: 20%;
+}
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(2){
+	width: 12%;
+}
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(3){
+	width: 25%;
+}
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(4){
+	width: 43%;
+}
+
+.profile_service_accomodation_row4 .service_order_block_info:nth-child(1){
+	width: 100%;
+}
+
+ .profile_order_block .service_order_block_item_wrap{
+ 	border-bottom: 1px solid #e0e0e0;
+ }
+
+ .profile_service_block_desc.profile_service_block_desc_hide, .list_tour_service_hide{
+	display: none;
+}
+.profile_service_block_desc{
+	height: 335px;
+	overflow-y: scroll;
+}
+.review_hide_description_serv{
+	cursor: pointer;
+}
 /*=========================================================*/
 /*=====================COMPANY=============================*/
 /*=========================================================*/
