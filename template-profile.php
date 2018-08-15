@@ -321,11 +321,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 															$guide_line2 = explode(":", $guide_line[1]);
 															$guide_line3 = explode(":", $guide_line[2]);
 															$guide_line4 = explode(":", $guide_line[3]);
+															$guide_line5 = explode(":", $guide_line[4]);
 
 															if($guide_line1[2] == "" || !$guide_line1[1]) $guide_line1[2] = "-";
 															if($guide_line2[1] == "" || !$guide_line2[1]) $guide_line2[1] = "-";
 															if($guide_line3[1] == "" || !$guide_line3[1]) $guide_line3[1] = "-";
-															if($guide_line4[1] == "" || !$guide_line4[1]) $guide_line2[1] = "-";
+															if($guide_line4[1] == "" || !$guide_line4[1]) $guide_line4[1] = "-";
+															if($guide_line5[1] == "" || !$guide_line5[1]) $guide_line5[1] = "-";
 
 
 															if($guide_line5[1] == "" || !$guide_line5[1]) $guide_line5[1] = "-";												
