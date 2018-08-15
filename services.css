@@ -277,6 +277,7 @@
 	padding-bottom: 20px;
 }
 
+
 .tour_services_button_add_more{
   font-family: Lato;
   font-size: 18px;
@@ -285,7 +286,20 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
+  position: relative;
   color: #2f80ed;
+}
+.button_add_more_description{
+	position: absolute;
+	bottom: -35px;
+	left: 0;
+	font-family: Lato;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: italic;
+    color: #bdbdbd;
+    white-space: nowrap;
+
 }
 .add_new_plus_image{
 	display: inline-block;

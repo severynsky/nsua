@@ -443,7 +443,10 @@ Template Name: Services Page
 				</div><!-- tour_body_tab_special -->				
 
 				<div class="tour_services_tab_reserve">
-					<div class="tour_services_button_add_more"><svg width="17" height="17" class="add_new_plus_image" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path strke-width="4px" d="M12,1v24"  fill="none" stroke="#2f80ed" stroke-width="4px"/><path strke-width="4px" d="M1,12h24"  fill="none" stroke="#2f80ed" stroke-width="4px"/></svg>Add More</div>
+					<div class="tour_services_button_add_more"><svg width="17" height="17" class="add_new_plus_image" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path strke-width="4px" d="M12,1v24"  fill="none" stroke="#2f80ed" stroke-width="4px"/><path strke-width="4px" d="M1,12h24"  fill="none" stroke="#2f80ed" stroke-width="4px"/></svg>
+						Add More
+						<p class="button_add_more_description">*Select more services</p>
+					</div>
 					<div class="tour_services_button_reserve">Reserve</div>
 					
 				</div>
