@@ -654,9 +654,8 @@
 				repEl('.oder_elderly_info', '.order_elderly_quantity');
 				repEl('.order_single_room', '.order_single_quantity');
 				repEl('.order_double_room', '.order_double_quantity');
-				repEl('.order_twin_room', '.order_twin_quantity');
-				
-				// repEl('.order_special_requirements_desc', '.order_special_requirements_area');			
+				repEl('.order_twin_room', '.order_twin_quantity');				
+				 repEl('.order_spec_require_description', '.order_special_requirements_area');			
 
 
 				El('.oder_adult_info').innerText = adult;
