@@ -1962,23 +1962,28 @@ div.wpcf7-mail-sent-ok{
   display: inline-block;
   position: relative;
   display: none;
-  min-width: 320px;
-  padding: 20px; }
-
-  .tour_modal_email_close, .tour_modal_reserve_close{
-    position: absolute;
-    cursor: pointer;
-    right: -11px;
-    top: -11px;
-    width: 25px;
-    height: 25px;
-    background-color: #4f95f7;
-    color: #fff;
-    font-size: 19px;
-    text-transform: uppercase;
-    border-radius: 50%;
-    text-align: center;
-    font-weight: 700;}
+  min-width: 490px;
+  padding: 20px;
+}
+@media (max-width: 440) {
+  .tour_modal_reserve_wrap {
+    min-width: 320px;
+  }
+}
+.tour_modal_email_close, .tour_modal_reserve_close{
+  position: absolute;
+  cursor: pointer;
+  right: -11px;
+  top: -11px;
+  width: 25px;
+  height: 25px;
+  background-color: #4f95f7;
+  color: #fff;
+  font-size: 19px;
+  text-transform: uppercase;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 700;}
 
 .tour_modal_reserve_heading {
   font-size: 18px;
@@ -2033,7 +2038,7 @@ div.wpcf7-mail-sent-ok{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-wrap: wrap; }
 
 .company_page_content {
@@ -2060,12 +2065,15 @@ h4.company_page_tab_name {
   width: 30%; }
   .company_page_link a {
     text-decoration: none; }
+  .company_page_link a:hover {
+    color: #2f80ed;
+  }
   .company_page_link .company_page_link_item {
     font-size: 18px;
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
-    padding-left: 150px;
+    padding-left: 50px;
     line-height: 35px; }
 
 @media (max-width: 768px) {
