@@ -29,6 +29,12 @@ Text Domain: next step
 .half_block {
   width: 600px; }
 
+@media (max-width: 1024px) {
+  .half_block {
+    width: 500px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6, div, span, li, a, input, textarea {
   font-family: Lato;
   font-style: normal;
@@ -494,7 +500,11 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
 
 .tour-tag_item {
   padding: 0 10px; }
-
+@media (max-width: 440px) {
+  .tour-tag_item {
+    padding: 0 4px;
+  }
+}
 /*========================================all tours==========================*/
 .all_tours {
   display: flex;
@@ -607,6 +617,13 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
     fill:#2f80ed;
   }
 
+@media (max-width: 768px) {
+  .simplefavorite-button{
+    display: block;
+    width: 40px;
+    margin: 0 auto;
+  }
+}
 /*.white_favorite .simplefavorite-button .heart_icon .hearth_path {
     fill: transparent;
     stroke: #fff;
@@ -1290,7 +1307,14 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
     font-size: 13px;
     font-weight: normal;
     color: #000; }
-
+@media (max-width: 768px) {
+  .tour_addons_heading {
+    padding: 10px 0;
+  }
+  .tour_description_service {
+    padding: 10px 0;
+  }
+}
 .tour_reserve_info {
   display: flex;
   justify-content: space-between;
@@ -1441,6 +1465,11 @@ div.header_fixed_active .nav_top_line, div.header_fixed_active .nav_middle_line,
         padding: 0px 0 0px 45px;
       }
     }
+  @media (max-width: 1024px) {
+    .tours_city_block .tours_city_block_left .tours_city_block_left_wrap {
+      padding-top: 23px;
+    }
+  }
   .tours_city_block div.swiper-slide {
     background-size: cover;
     background-position: center;
@@ -1674,7 +1703,12 @@ div.swiper-slide {
   padding-bottom: 30px;
   padding-top: 25px;
   color: #2b2a29; }
-
+@media (max-width: 768px) {
+  .short_city_includ_wraper_heading {
+    padding-bottom: 5px;
+    padding-top: 0px;
+  }
+}
 .short_city_includ_wraper {
   width: 80%;
   padding: 20px 20px 20px 40px;
@@ -1965,7 +1999,7 @@ div.wpcf7-mail-sent-ok{
   min-width: 490px;
   padding: 20px;
 }
-@media (max-width: 440) {
+@media (max-width: 768px) {
   .tour_modal_reserve_wrap {
     min-width: 320px;
   }
@@ -3241,7 +3275,7 @@ span.pagination_arrow{
   .mobile_nav_icon {
     display: block;
     position: absolute;
-    top: 39px;
+    top: 20px;
     right: 10px; }
 
   .header_tour-name .tour-name_link{
@@ -3315,9 +3349,9 @@ span.pagination_arrow{
     text-align: center;
     width: 100%;
     padding: 7px 0;
-    bottom: 14px;
+    /*bottom: 14px;*/
     background-color: #2f80ed;
-    margin-bottom: 0px; }
+    margin-bottom: 60px; }
 
   .tour_inclusive {
     display: none; }
@@ -3592,10 +3626,15 @@ div.swiper-button-next.swiper_next.review_navigation_next{
 .single_tour_tag{
   text-align: center;
 }
-.tour_reserve_price .reserve_price_detail{
-  padding-bottom: 40px;
-  padding-top: 10px;
+@media (max-width: 768px) {
+  .tour_reserve_price .reserve_price_detail{
+    padding: 0px;
+  }
+  .tour_resefve{
+    margin-top: 20px;
+  }
 }
+
 .tour_resefve{
   margin-top: 40px;
 }

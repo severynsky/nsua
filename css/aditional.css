@@ -177,120 +177,115 @@ img.order_edit_image{
 	text-align: center;
 }
 /*========================== register tour ==========================*/
-.register_page{
-	width: 100%;
-	padding: 20vh 0 20vh 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
-@media (min-width: 440px) {
-	.register_page {
-		padding: 10vh 0 10vh 0;
-	}
-}
-.register_page_wraper{
-	box-sizing: border-box;
-	position: relative;
-	width: 450px;
-	padding: 47px 75px 55px 75px;
-	background-color: #fff;
-}
-.register_logo{
-	text-align: center;
-}
-.register_logo img{
-	width: 100px;
-}
-.register_heading{
-	padding-top: 45px;
-	text-transform: uppercase;
-	font-family: Lato;
-	font-size: 24px;
-	font-weight: bold;
-	color: #2f80ed;
-}
-.register_label_name{
-	  font-family: Lato;
-	  font-size: 14px;
-	  font-weight: bold;
-	  color: #bdbdbd;
-	  padding-top: 20px;
-}
-.register_input_field{
-	width: 100%;
-	background-color: transparent;
-	border:none;
-	padding: 7px 0;
-	margin-top: 15px;
-	border-bottom: 1px solid #bdbdbd;
-	font-family: Lato;
-	font-size: 18px;
-	font-weight: normal;
-	color: #2b2a29;
-}
-.register_input_field:focus{
-	outline: none;
-	border-bottom: 1px solid #bdbdbd;
-}
-.register_or{
-	  font-family: Lato;
-	  font-size: 16px;
-	  font-weight: normal;
-	  text-align: center;
-	  color: #bdbdbd;
-	  padding: 0;
-}
-.register_social_heading{
-	  font-family: Lato;
-	  font-size: 16px;
-	  font-weight: normal;
-	  color: #2b2a29;
-	  text-align: center;
-}
-.register_account{
-	width: 100%;
-    box-sizing: border-box;
-    height: 56px;
-    padding: 18px 0 18px 0;
-    background-color: #2f80ed;
-    text-align: center;
-    color: #fff; 
-    font-family: Lato;
-	font-size: 18px;
-	font-weight: bold;
-	color: #ffffff;
-}
-.register_bottom_login{
-	text-align: center;
-	font-family: Lato;
-	font-size: 16px;
-	font-weight: normal;
-	color: #2b2a29;
-	padding-top: 25px;
-}
-.register_bottom_login a{
-	font-weight: bold;
-		color: #2f80ed;
-}
-.woocommerce form p.form-row-first, .woocommerce form .form-row-first{
-	width: 100%;
-}
-.register_back{
-	position: absolute;
-	cursor: pointer;
-	top: -35px;
-	color: #fff;
-	left: 0;
-	display: flex;
-}
-.register_arrow{
-	display: inline-block;
-	margin-right: 15px;
-}
+	.register_page{
+			width: 100%;
+			padding: 20vh 0 20vh 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		}
+		.register_page_wraper{
+			box-sizing: border-box;
+			position: relative;
+			width: 450px;
+			padding: 47px 75px 55px 75px;
+			background-color: #fff;
+		}
+		.register_logo{
+			text-align: center;
+		}
+		.register_logo img{
+			width:110px;
+		}
+		.register_heading{
+			padding-top: 45px;
+			text-transform: uppercase;
+			font-family: Lato;
+			font-size: 24px;
+			font-weight: bold;
+			color: #2f80ed;
+		}
+		.register_label_name{
+			  font-family: Lato;
+			  font-size: 14px;
+			  font-weight: bold;
+			  color: #bdbdbd;
+			  padding-top: 20px;
+		}
+		.register_input_field{
+			width: 100%;
+			background-color: transparent;
+			border:none;
+			padding: 7px 0;
+			margin-top: 15px;
+			border-bottom: 1px solid #bdbdbd;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: normal;
+			color: #2b2a29;
+		}
+		.register_input_field:focus{
+			outline: none;
+			border-bottom: 1px solid #bdbdbd;
+		}
+		.register_or{
+			  font-family: Lato;
+			  font-size: 16px;
+			  font-weight: normal;
+			  text-align: center;
+			  color: #bdbdbd;
+			  padding: 30px 0 15px 0;
+		}
+		.register_social_heading{
+			  font-family: Lato;
+			  font-size: 16px;
+			  font-weight: normal;
+			  color: #2b2a29;
+			  text-align: center;
+		}
+		.register_account{
+			width: 100%;
+		    box-sizing: border-box;
+		    height: 56px;
+		    padding: 18px 0 18px 0;
+		    background-color: #2f80ed;
+		    text-align: center;
+		    color: #fff; 
+		    font-family: Lato;
+			font-size: 18px;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		.register_bottom_login{
+			text-align: center;
+			font-family: Lato;
+			font-size: 16px;
+			font-weight: normal;
+			color: #2b2a29;
+			padding-top: 25px;
+		}
+		.register_bottom_login a{
+			font-weight: bold;
+  			color: #2f80ed;
+		}
+		.woocommerce form p.form-row-first, .woocommerce form .form-row-first{
+			width: 100%;
+		}
+		.register_back{
+			position: absolute;
+			cursor: pointer;
+			top: -27px;
+			color: #fff;
+			left: 0;
+			display: flex;
+		}
+		.register_arrow{
+			display: inline-block;
+			margin-right: 15px;
+		}
 /*=================REGISTER TOUR======================*/
 		.tour_register{
 			display: none;
@@ -583,6 +578,23 @@ img.order_edit_image{
 			width: 40%;
 			height: 70px;
 		}
+		.list_tour_item_name.services_tour_item_name{
+			width: 30%;
+		}
+		.services_tour_tag{
+			width:50%;
+			height: 70px;
+			text-transform:uppercase;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			border-left: 1px solid #e0e0e0;
+			font-family: Lato;
+			font-size: 18px;
+			font-weight: bold;
+			font-style: normal;
+			color: #2b2a29;
+		}
 		.list_tour_item_city_day{
 			width: 20%;
 			height: 70px;
@@ -817,6 +829,111 @@ a.simplefavorite-button.active{
 	margin: 0 auto;
 }
 #profile_services {}
+
+.profile_order_block{
+	border: 1px solid #e0e0e0;
+	border-left: 3px solid #2f80ed;
+}
+.profile_order_block .service_order_name_value{
+	font-weight: bold;
+	font-size: 14px;
+}
+.profile_order_block .service_order_block_item_wrap{
+	padding: 20px 10px 20px 33px;
+}
+.profile_order_block .profile_service_accomodation_row1, .profile_order_block .profile_service_accomodation_row2, .profile_order_block .profile_service_accomodation_row3, .profile_order_block .profile_service_accomodation_row4{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.profile_order_block .service_order_value_item p, .profile_order_block .service_order_value_item span{
+	font-weight: 500;
+	font-size: 16px;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(1), .profile_service_accomodation_row2 .service_order_block_info:nth-child(1){
+	width: 27%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(2), .profile_service_accomodation_row2 .service_order_block_info:nth-child(2){
+	width: 11%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(3), .profile_service_accomodation_row2 .service_order_block_info:nth-child(3){
+	width: 24%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(4), .profile_service_accomodation_row2 .service_order_block_info:nth-child(4){
+	width: 10%;
+}
+.profile_service_accomodation_row1 .service_order_block_info:nth-child(5), .profile_service_accomodation_row2 .service_order_block_info:nth-child(5){
+	width: 28%;
+}
+
+
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(1){
+	width: 20%;
+}
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(2){
+	width: 12%;
+}
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(3){
+	width: 25%;
+}
+.profile_service_accomodation_row3 .service_order_block_info:nth-child(4){
+	width: 43%;
+}
+
+.profile_service_accomodation_row4 .service_order_block_info:nth-child(1){
+	width: 100%;
+}
+
+ .profile_order_block .service_order_block_item_wrap{
+ 	border-bottom: 1px solid #e0e0e0;
+ }
+
+ .profile_service_block_desc.profile_service_block_desc_hide, .list_tour_service_hide{
+	display: none;
+}
+.profile_service_block_desc{
+	padding-right: 5px;
+
+}
+.profile_service_block_desc .service_order_block_wrap{
+	height: 335px;
+	overflow-y: scroll;
+}
+.review_hide_description_serv{
+	cursor: pointer;
+}
+.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar {
+    width: 5px;
+  
+}
+
+/* Track */
+.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-track {
+    box-shadow: inset 0 1px 0 #ccc; 
+    border-radius: 5px;
+
+}
+ 
+/* Handle */
+.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-thumb {
+    background: #2f80ed; 
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-thumb:hover {
+    background: #0751b4; 
+}
+
+/* Services page*/
+.transfer_from_place::placeholder, .guide__label_select[name="passenger__label_select"]::placeholder, .transfer_to_place::placeholder{
+	font-family: Lato;
+    font-size: 16px;
+    font-weight: 500;   
+    letter-spacing: normal;
+    color: #2b2a29;
+}
+
 /*=========================================================*/
 /*=====================COMPANY=============================*/
 /*=========================================================*/
@@ -833,6 +950,41 @@ a.simplefavorite-button.active{
 	  color: #ffffff;
 	  text-decoration: none;
 }
+@media only screen and (max-width: 1100px){
+
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(1), .profile_service_accomodation_row2 .service_order_block_info:nth-child(1){
+		width: 40%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(2), .profile_service_accomodation_row2 .service_order_block_info:nth-child(2){
+		width: 20%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(3), .profile_service_accomodation_row2 .service_order_block_info:nth-child(3){
+		width: 40%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(4), .profile_service_accomodation_row2 .service_order_block_info:nth-child(4){
+		width: 50%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(5), .profile_service_accomodation_row2 .service_order_block_info:nth-child(5){
+		width: 50%;
+	}
+
+
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(1){
+		width: 50%;
+	}
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(2){
+		width: 50%;
+	}
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(3){
+		width: 30%;
+	}
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(4){
+		width: 70%;
+	}
+
+
+}
+
 @media only screen and (max-width: 960px) {
 .black_favorite .simplefavorite-button .hearth_path, .simplefavorite-button .hearth_path{
 	fill: transparent;
@@ -908,6 +1060,50 @@ div.profile_tab span{
   .profile_page{
       padding-top: 70px;
     }
+
+
+    .profile_service_accomodation_row1 .service_order_block_info:nth-child(1), .profile_service_accomodation_row2 .service_order_block_info:nth-child(1){
+		width: 100%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(2), .profile_service_accomodation_row2 .service_order_block_info:nth-child(2){
+		width: 100%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(3), .profile_service_accomodation_row2 .service_order_block_info:nth-child(3){
+		width: 100%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(4), .profile_service_accomodation_row2 .service_order_block_info:nth-child(4){
+		width: 100%;
+	}
+	.profile_service_accomodation_row1 .service_order_block_info:nth-child(5), .profile_service_accomodation_row2 .service_order_block_info:nth-child(5){
+		width: 100%;
+	}
+
+
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(1){
+		width: 100%;
+	}
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(2){
+		width: 100%;
+	}
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(3){
+		width: 100%;
+	}
+	.profile_service_accomodation_row3 .service_order_block_info:nth-child(4){
+		width: 100%;
+	}
+
+	.list_tour_item_name.services_tour_item_name, .list_tour_item_name{
+		height: 100px;
+		text-align: center;
+	}
+	.list_tour_item_parent_name{
+		width: unset;
+	}
+	.services_tour_tag{
+		width: 100%;
+		text-align: center;
+		border:unset;
+	}
 
 }
 @media only screen and (max-width: 540px) {
