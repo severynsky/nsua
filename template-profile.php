@@ -78,11 +78,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$tour_limit = 8;
 			$curUser = get_current_user_id();
 
+			$current_user = wp_get_current_user();
+			if(get_user_meta( $curUser, 'billing_email', true ) || get_user_meta( $curUser, 'billing_email', true ) != ""){
+				$user_mail = get_user_meta( $curUser, 'billing_email', true );
+			} else {
+				$user_mail = $current_user->user_email;
+			}
+
 			// ================Update user meta
 			
 			$user_name = get_user_meta( $curUser, 'billing_first_name', true );
 			$user_lastname = get_user_meta( $curUser, 'billing_last_name', true );
-			$user_mail = get_user_meta( $curUser, 'billing_email', true );
+			// $user_mail = get_user_meta( $curUser, 'billing_email', true );
 			$user_phone = get_user_meta( $curUser, 'billing_phone', true );
 			$user_country = get_user_meta( $curUser, 'billing_state', true );
 			$user_address = get_user_meta( $curUser, 'billing_address_1', true );
