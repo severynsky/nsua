@@ -190,6 +190,10 @@
 							<div class="order_rooms_info_double">
 								<h5 class="order_rooms_info_name">Double</h5>
 								<input class="order_rooms_info_quantity order_double_quantity" type="number" name="double_value" placeholder="00" value="<?php echo trim($double_s); ?>">
+							</div>
+							<div class="order_rooms_info_double">
+								<h5 class="order_rooms_info_name">Twin</h5>
+								<input class="order_rooms_info_quantity order_twin_quantity" type="number" name="twin_value" placeholder="00" value="">
 							</div>						
 						</div>					
 					</div>
@@ -238,7 +242,7 @@
 						<h4 class="order_persons_info_sec_info">Sex</h4>
 						<input id="order_tour_male" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'male'){echo 'checked';} ?> type="radio" name="Sex" value="Male">
 						<label class="order_tour_label_radio" for="order_tour_male">Male</label>
-						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) != 'male'){echo 'checked';} ?> type="radio" name="Sex" value="Female">	
+						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'female'){echo 'checked';} ?> type="radio" name="Sex" value="Female">	
 						<label class="order_tour_label_radio" for="order_tour_female">Female</label>					
 					</div>
 					<div class="order_tour_slide2_block">
@@ -250,7 +254,7 @@
 						<input class="order_persons_info_sec_input order__data_city" type="text" value="<?php echo $user_city; ?>" name="data_city" placeholder="City">						
 					</div>
 					<div class="order_tour_slide2_block">
-						<h4 class="order_persons_info_sec_info">Company Name*</h4>
+						<h4 class="order_persons_info_sec_info">Company Name</h4>
 						<input class="order_persons_info_sec_input order__data_company" type="text" name="data_company" value="<?php echo $user_company; ?>" placeholder="Company Name">						
 					</div>
 				</div>
@@ -290,11 +294,15 @@
 						<h5 class="order_partipiant_info_heading order__rooms_heading">Amount of rooms by capacity</h5>
 						<div class="order_information_block_item">
 							<span class="">Single</span>
-							<span class="order_information_number order_single_room">5</span>
+							<span class="order_information_number order_single_room"></span>
 						</div>
 						<div class="order_information_block_item">
 							<span class="">Double</span>
-							<span class="order_information_number order_double_room">7</span>
+							<span class="order_information_number order_double_room"></span>
+						</div>	
+						<div class="order_information_block_item">
+							<span class="">Twin</span>
+							<span class="order_information_number order_twin_room"></span>
 						</div>												
 					</div>
 
@@ -343,7 +351,7 @@
 						<span class="order_customer_block_desc order_customer__city"></span>
 					</div>
 					<div class="order_customer_block_item">
-						<span class="order_customer_block_name order_customer_block_company">Company Name*</span>
+						<span class="order_customer_block_name order_customer_block_company">Company Name</span>
 						<span class="order_customer_block_desc order_customer__company"></span>
 					</div>
 
@@ -394,6 +402,7 @@
 (function(){
 	// =========================Create REQUEST order====================
 				jQuery('.order__make_order').click(function(){
+					// debugger;
 					var chId = jQuery('.order_ready__make_step input[name="method_buy"]:checked').attr('id');
 					jQuery('.order_wraper_spiner').css('display','flex');
 					if(chId == 'order_ready__buy'){						
@@ -404,17 +413,28 @@
 					} else if(chId == 'order_ready__book'){
 						jQuery('#place_order').trigger('click');
 					} else {
+						var leader_group = tour_config = "";
+						if(document.querySelector('[name="groupleader"]:checked')){
+							leader_group = document.querySelector('[name="groupleader"]:checked').value;
+						} else {
+							leader_group = "No";
+						}
+						if(document.querySelector('[name="tour_configuration"]:checked')){
+							tour_config = document.querySelector('[name="tour_configuration"]:checked').value;
+						} else {
+							tour_config =  "No";
+						}
 							var data = {
 								action: 'tourrequest',
 								prod_id: '<?php echo $tourID; ?>',
 								size_group: 	document.querySelector('[name="size_group"]').value,
-								groupleader: 	document.querySelector('[name="groupleader"]:checked').value,
+								groupleader: 	leader_group,
 								adult_value: 	document.querySelector('[name="adult_value"]').value,
 								children_value: document.querySelector('[name="children_value"]').value,
 								elderly_value: 	document.querySelector('[name="elderly_value"]').value,
 								single_value: 	document.querySelector('[name="single_value"]').value,
 								double_value: 	document.querySelector('[name="double_value"]').value,
-								tour_configuration: document.querySelector('[name="tour_configuration"]:checked').value,
+								tour_configuration: tour_config,
 								requirement: 	document.querySelector('[name="requirement"]').value,
 
 								first_name: 	document.querySelector('[name="first_name"]').value,
@@ -429,6 +449,7 @@
 								data_city: 		document.querySelector('[name="data_city"]').value,
 								data_company: 	document.querySelector('[name="data_company"]').value,
 								method_buy: 	document.querySelector('[name="method_buy"]').value,
+								twin: document.querySelector('.order_twin_quantity[name="twin_value"]').value,
 
 							}; 
 							jQuery.post({ url:MyAjax.ajaxurl, data:data, success:function(response) {						
@@ -447,6 +468,17 @@
 				// =========================Create SAVE order====================
 				jQuery('.order_buttons_save').click(function(){
 					jQuery('.order_wraper_spiner').css('display','flex');
+					var leader_group = tour_config = "";
+						if(document.querySelector('[name="groupleader"]:checked')){
+							leader_group = document.querySelector('[name="groupleader"]:checked').value;
+						} else {
+							leader_group = "No";
+						}
+						if(document.querySelector('[name="tour_configuration"]:checked')){
+							tour_config = document.querySelector('[name="tour_configuration"]:checked').value;
+						} else {
+							tour_config = "No";
+						}
 					var savedata = {
 							action: 'saveorder',
 							postId: '<?php echo $tourID ?>',
@@ -456,9 +488,9 @@
 							elderly_value: 	document.querySelector('[name="elderly_value"]').value,
 							single_value: 	document.querySelector('[name="single_value"]').value,
 							double_value: 	document.querySelector('[name="double_value"]').value,
-							group_leader: 	document.querySelector('[name="groupleader"]:checked').value,
+							group_leader: 	leader_group,
 							requirement: 	document.querySelector('[name="requirement"]').value,
-							configuration: document.querySelector('[name="tour_configuration"]:checked').value,
+							configuration: tour_config,
 							first_name: 	document.querySelector('[name="first_name"]').value,
 							last_name: 		document.querySelector('[name="last_name"]').value,
 							phone_number: 	document.querySelector('[name="phone_number"]').value,
@@ -471,6 +503,7 @@
 							data_city: 		document.querySelector('[name="data_city"]').value,
 							data_company: 	document.querySelector('[name="data_company"]').value,
 							method_buy: 	document.querySelector('[name="method_buy"]').value,
+							twin: document.querySelector('.order_twin_quantity[name="twin_value"]').value,
 							//orderData: jQuery('.order_tour_form').serialize(),
 						};
 
@@ -534,7 +567,7 @@
 					email = true;
 				} 
  
-			    var regex = new RegExp("^[0-9\+]{1,}[0-9\-]{3,15}$");
+			    var regex = new RegExp("^[0-9\+]{1,}[0-9\- ]{3,15}$");
 			    phone = regex.test(jQuery('.order__data_phone').val()); 
 
 			    if(jQuery('.order__data_firstname').val() == ""){
@@ -601,6 +634,7 @@
 				var requiremen = jQuery('.order_special_requirements_area').val();
 				var leader = jQuery('#group_leader').val();
 				var configuration = jQuery('#order_tour_configuring_info').val();
+				var twin = document.querySelector('.order_twin_quantity[name="twin_value"]').value;
 
 				if(document.querySelector('#group_leader').checked){
 					El('#order_information_group_leader').checked = true;
@@ -620,7 +654,8 @@
 				repEl('.oder_elderly_info', '.order_elderly_quantity');
 				repEl('.order_single_room', '.order_single_quantity');
 				repEl('.order_double_room', '.order_double_quantity');
-				// repEl('.order_special_requirements_desc', '.order_special_requirements_area');			
+				repEl('.order_twin_room', '.order_twin_quantity');				
+				 repEl('.order_spec_require_description', '.order_special_requirements_area');			
 
 
 				El('.oder_adult_info').innerText = adult;
@@ -632,7 +667,7 @@
 				El('.order_customer__country').innerText = country;
 				El('.order_customer__city').innerText = city;
 				El('.order_customer__company').innerText = company;
-				El('.order_customer__sex').innerText 
+				// El('.order_customer__sex').innerText = "";
 
 				var tour_s = '';
 				if(document.getElementById("order_tour_male").checked){
@@ -658,7 +693,7 @@
 				jQuery('#billing_month_birthday').val(jQuery('.order_persons_birthday_mounth').val());
 				jQuery('#billing_year_birthday').val(jQuery('.order_persons_birthday_year').val());
 
-				jQuery('#order_comments').val(''+leader+'; '+configuration+'; Birthday:'+custBirthday+';  Sex:'+tour_s+';  Group size:'+groupSize+'; Adults:'+adult+'; Children:'+kids+'; Elderly:'+elderly+'; Single:'+single+'; Double:'+double+'; Special requirements:'+requiremen+'');
+				jQuery('#order_comments').val(''+leader+'; '+configuration+'; Birthday:'+custBirthday+';  Sex:'+tour_s+';  Group size:'+groupSize+'; Adults:'+adult+'; Children:'+kids+'; Elderly:'+elderly+'; Single:'+single+'; Double:'+double+'; Twin:'+twin+'; Special requirements:'+requiremen+'');
 
 				jQuery('.order_tour_slide3, .order_buttons_back, .order__make_order').css('display', 'block');
 				jQuery('.order_tour_slide2, .order_tour_slide1, .order_buttons_quit_quit, .order__make_next').css('display', 'none');

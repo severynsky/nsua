@@ -559,7 +559,7 @@ img.order_edit_image{
 			border: 1px solid  #e0e0e0;
 			border-left: 3px solid #2f80ed;
 			height: 110px;
-			margin: 7px 0;
+			margin: 14px 0 0 0;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -895,33 +895,38 @@ a.simplefavorite-button.active{
 	padding-right: 5px;
 
 }
-.profile_service_block_desc .service_order_block_wrap{
+/*.profile_service_block_desc .service_order_block_wrap{*/
+.service_order_block_wrap{
 	height: 335px;
 	overflow-y: scroll;
 }
 .review_hide_description_serv{
 	cursor: pointer;
 }
-.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar {
+
+/*.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar {*/
+.service_order_block_wrap::-webkit-scrollbar {
     width: 5px;
   
 }
 
 /* Track */
-.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-track {
+/*.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-track {*/
+.service_order_block_wrap::-webkit-scrollbar-track {
     box-shadow: inset 0 1px 0 #ccc; 
     border-radius: 5px;
 
 }
  
 /* Handle */
-.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-thumb {
+/*.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-thumb {*/
+.service_order_block_wrap::-webkit-scrollbar-thumb {
     background: #2f80ed; 
     border-radius: 4px;
 }
 
 /* Handle on hover */
-.profile_service_block_desc .service_order_block_wrap::-webkit-scrollbar-thumb:hover {
+.service_order_block_wrap::-webkit-scrollbar-thumb:hover {
     background: #0751b4; 
 }
 

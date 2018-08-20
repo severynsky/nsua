@@ -75,13 +75,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 			
 			<?php
 			global $wpdb;
+			$tour_limit = 8;
 			$curUser = get_current_user_id();
+
+			$current_user = wp_get_current_user();
+			if(get_user_meta( $curUser, 'billing_email', true ) || get_user_meta( $curUser, 'billing_email', true ) != ""){
+				$user_mail = get_user_meta( $curUser, 'billing_email', true );
+			} else {
+				$user_mail = $current_user->user_email;
+			}
 
 			// ================Update user meta
 			
 			$user_name = get_user_meta( $curUser, 'billing_first_name', true );
 			$user_lastname = get_user_meta( $curUser, 'billing_last_name', true );
-			$user_mail = get_user_meta( $curUser, 'billing_email', true );
+			// $user_mail = get_user_meta( $curUser, 'billing_email', true );
 			$user_phone = get_user_meta( $curUser, 'billing_phone', true );
 			$user_country = get_user_meta( $curUser, 'billing_state', true );
 			$user_address = get_user_meta( $curUser, 'billing_address_1', true );
@@ -179,23 +187,324 @@ if ( ! defined( 'ABSPATH' ) ) {
 										    ) );
 										?>
 										<?php
-											//var_dump($request_order);
+												
+											
 											$services_item = 1;
 											$services_count = 1;
 											
 										    foreach ($request_order as $post) {
-										    	if($services_item%4 ==1){echo '<div class="swiper-slide"  data-hash="slide'. $services_count.'">'; }
+										    	if($services_item%8 ==1){echo '<div class="swiper-slide"  data-hash="slide'. $services_count.'">'; }
 										    	$order_req = wc_get_order( $post->ID );
 										    	$order_url = $order_req->get_view_order_url();
-										    	
-										    	echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($post->ID) .'</h3><h4 class="list_tour_item_child_name">-</h4></div><div class="list_tour_item_city_day"><span>-</span><span> | </span><span>-</span></div><div class="list_tour_item_price"> --</div><div class="list_tour_item_view_order"><a href="">	View/Order</a></div>	</div>';												
 
-										    	if($services_item%4 == 0){$services_count++; echo '</div>'; }
+										    	
+										    	
+										    	
+										    	echo '<div class="list_tour_content_item"><div class="list_tour_item_name services_tour_item_name">	<h3 class="list_tour_item_parent_name" style="text-transform:uppercase;">service request </h3><h4 class="list_tour_item_child_name">'.$order_req->order_date.'</h4></div><div class="services_tour_tag" >accomodation/transfer/guide/special</div><div class="list_tour_item_view_order review_hide_description_serv"><span class="list_tour_service_review">Review</span><span class="list_tour_service_hide">Hide</span><img style="width:16px; height:13px;margin-left:7px;" src="'.get_template_directory_uri().'/img/arrow-bottom.svg"/></div>	</div>';
+
+?>
+													<?php $serv_data = explode("!", $order_req->customer_message); //print_r($serv_data); 
+														$hotels_arr=$appart_arr=$special_arr=$trans_from_arr=$trans_to_arr=$guide_arr=$custom_request_arr = [];
+														for($i = 0; $i < count($serv_data); $i++){
+															if(preg_match('/Hotel/i', $serv_data[$i])) array_push($hotels_arr, $serv_data[$i]);
+															if(preg_match('/Apartament/', $serv_data[$i])) array_push($appart_arr, $serv_data[$i]);
+															if(preg_match('/ Message:/', $serv_data[$i])) array_push($special_arr, $serv_data[$i]);
+
+
+															if(preg_match('/Transfer From/', $serv_data[$i])) array_push($trans_from_arr, $serv_data[$i]);
+															if(preg_match('/Transfer To/', $serv_data[$i])) array_push($trans_to_arr, $serv_data[$i]);
+															if(preg_match('/Interpreter/', $serv_data[$i])) array_push($guide_arr, $serv_data[$i]);
+															if(preg_match('/Special message/', $serv_data[$i])) array_push($custom_request_arr, $serv_data[$i]);
+
+														}
+														$acomo_city = $acomo_hotel = $acomo_date = $acomo_guest = $acomo_rooms = "";
+														for($ii = 0; $ii < count($hotels_arr); $ii++){
+															$line = explode(";", $hotels_arr[$ii]);
+															$line11 = explode(":", $line[0]);
+															$line12 = explode(":", $line[1]);
+															$line13 = explode(":", $line[2]);
+															$line14 = explode(":", $line[3]);
+															$line15 = explode(":", $line[7]);
+															$line16 = explode(":", $line[4]);
+															$line17 = explode(":", $line[5]);
+															$line18 = explode(":", $line[6]);
+
+															if($line11[1] == "" || !$line11[1]) $line11[1] = "-";
+															if($line12[1] == "" || !$line12[1]) $line12[1] = "-";
+															if($line13[1] == "" || !$line13[1]) $line13[1] = "-";
+															if($line14[1] == "" || !$line14[1]) $line14[1] = "-";
+															
+															
+
+															$acomo_city .= '<div class="service_order_city"><p class="service_order_value_item">Hotel: '.$line11[2].'</p></div>';
+															if(preg_match('/Select your hotel/i', $line12[1])) $line12[1] = "-";
+															$acomo_hotel .='<div class="service_order_city"><p class="service_order_value_item">'.$line12[1].'</p></div>';
+															$acomo_date .='<div class="service_order_city"><p class="service_order_value_item">'.$line13[1].' - '.$line14[1].'</p></div>'; 
+															if($line15[1] == "" || !$line15[1]) $line15[1] = "-";
+															$acomo_guest .= '<div class="service_order_city"><p class="service_order_value_item">'.$line15[1].'</p></div>';
+															if($line16[1] == "" || !$line16[1]) $line16[1] = "-";
+															if($line17[1] == "" || !$line17[1]) $line17[1] = "-";
+															if($line18[1] == "" || !$line18[1]) $line18[1] = "-";
+															$acomo_rooms .= '<div class="service_order_city"><p class="service_order_value_item">Single '.$line16[1].'; Double '.$line17[1].'; Twin '.$line18[1].';</p></div>';															
+														}
+
+														for($ij = 0; $ij < count($appart_arr); $ij++){
+															$line1 = explode(";", $appart_arr[$ij]);
+															$line21 = explode(":", $line1[0]);
+															$line22 = explode(":", $line1[1]);
+															$line23 = explode(":", $line1[2]);
+															$line24 = explode(":", $line1[3]);
+															$line25 = explode(":", $line1[4]);
+															$line26 = explode(":", $line1[5]);
+															$line27 = explode(":", $line1[6]);
+															$line28 = explode(":", $line1[7]);
+
+															if($line21[1] == "" || !$line21[1]) $line21[1] = "-";
+															if($line23[1] == "" || !$line23[1]) $line23[1] = "-";
+															
+															$acomo_city .= '<div class="service_order_city"><p class="service_order_value_item">Appartaments: '.$line21[2].'</p></div>';
+															
+															$acomo_hotel .='<div class="service_order_city"><p class="service_order_value_item">-</p></div>';
+															$acomo_date .='<div class="service_order_city"><p class="service_order_value_item">'.$line23[1].' - '.$line24[1].'</p></div>'; 
+															if($line22[1] == "") $line22[1] = "-";
+															$acomo_guest .= '<div class="service_order_city"><p class="service_order_value_item">'.$line22[1].'</p></div>';
+															if($line25[1] == "" || !$line25[1]) $line25[1] = "-";
+															if($line26[1] == "" || !$line26[1]) $line26[1] = "-";
+															if($line27[1] == "" || !$line27[1]) $line27[1] = "-";
+															if($line28[1] == "" || !$line28[1]) $line28[1] = "-";
+															$acomo_rooms .= '<div class="service_order_city"><p class="service_order_value_item">Rooms '.$line25[1].';Single '.$line26[1].'; Double '.$line27[1].'; Twin '.$line28[1].';</p></div>';															
+														}
+
+														$acomo_mes = "";
+														for($iy = 0; $iy < count($special_arr); $iy++){
+															$line2 = explode(":", $special_arr[$iy]);
+															$acomo_mes .= '<div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$line2[1].'</p></div>';
+
+														}
+
+// 														
+
+														$trans_city = $trans_place = $trans_date = $trans_time = $trans_pasen = "";
+														for($iz = 0; $iz < count($trans_from_arr); $iz++){
+															$trans = explode(";", $trans_from_arr[$iz]);
+															$trans_to = explode(";", $trans_to_arr[$iz]);
+															// print_r($trans);
+															$trans1 = explode(":", $trans[0]);
+															$trans2 = explode(":", $trans[1]);
+															$trans3 = explode(":", $trans[2]);
+															$trans4 = explode(":", $trans[4]);
+															$trans5 = explode(":", $trans[3]);
+
+															$trans11 = explode(":", $trans_to[0]);
+															$trans12 = explode(":", $trans_to[1]);
+															$trans13 = explode(":", $trans_to[2]);
+															$trans14 = explode(":", $trans_to[4]);
+															$trans15 = explode(":", $trans_to[3]);
+
+															if($trans2[1] == "" || !$trans2[1]) $trans2[1] = "-";
+															if($trans12[1] == "" || !$trans12[1]) $trans12[1] = "-";
+															if($trans3[1] == "" || !$trans3[1]) $trans3[1] = "-";
+															if($trans13[1] == "" || !$trans13[1]) $trans13[1] = "-";
+															if($trans4[1] == "" || !$trans4[1]) $trans4[1] = "-";
+															if($trans14[1] == "" || !$trans14[1]) $trans14[1] = "-";
+															if($trans5[1] == "" || !$trans5[1]) $trans5[1] = "-";
+															if($trans15[1] == "" || !$trans15[1]) $trans15[1] = "-";
+
+
+															$trans_city .='<div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.($iz+1).' From: '.$trans1[2].'</p></div><div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.($iz+1).' To: '.$trans11[2].'</p></div>';
+															$trans_place .= '<div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans2[1].'</p></div><div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans12[1].'</p></div>';
+
+															$trans_date .= '<div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans3[1].'</p></div><div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans13[1].'</p></div>';
+															$trans_pasen .= '<div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans5[1].'</p></div><div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans15[1].'</p></div>';
+															$trans_time .= '<div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans4[1].':'.$trans4[2].'</p></div><div class="service_order_accomod_wishes" style="width:100%;"><p class="service_order_value_item" style="width:100%;">'.$trans14[1].':'.$trans14[2].'</p></div>';
+															
+														}
+
+														$guide_city = $guide_date = $guide_hour = $guide_wishes = "";
+														for ($iq=0; $iq < count($guide_arr); $iq++) { 
+
+															$guide_line =  explode(";", $guide_arr[$iq]);															
+															$guide_line1 = explode(":", $guide_line[0]);
+															$guide_line2 = explode(":", $guide_line[1]);
+															$guide_line3 = explode(":", $guide_line[2]);
+															$guide_line4 = explode(":", $guide_line[3]);
+															$guide_line5 = explode(":", $guide_line[4]);
+
+															if($guide_line1[2] == "" || !$guide_line1[1]) $guide_line1[2] = "-";
+															if($guide_line2[1] == "" || !$guide_line2[1]) $guide_line2[1] = "-";
+															if($guide_line3[1] == "" || !$guide_line3[1]) $guide_line3[1] = "-";
+															if($guide_line4[1] == "" || !$guide_line4[1]) $guide_line4[1] = "-";
+															if($guide_line5[1] == "" || !$guide_line5[1]) $guide_line5[1] = "-";
+
+
+															if($guide_line5[1] == "" || !$guide_line5[1]) $guide_line5[1] = "-";												
+
+															$guide_city .= '<div class="service_order_city"><p class="service_order_value_item">'.$guide_line1[2].'</p></div>';
+															$guide_date .= '<div class="service_order_city"><p class="service_order_value_item">'.$guide_line2[1].'</p></div>';
+															$guide_hour .= '<div class="service_order_city"><p class="service_order_value_item">'.$guide_line3[1].' : '.$guide_line3[2].' - '.$guide_line4[1].' : '.$guide_line4[2].'</p></div>';
+															$guide_wishes .= '<div class="service_order_city"><p class="service_order_value_item">'.$guide_line5[1].'</p></div>';
+															
+														}
+
+														$special_message = "";
+														for ($is=0; $is < count($custom_request_arr); $is++) { 
+															$spec_message =  explode(";", $custom_request_arr[$is]);
+															$spec_line1 = explode(":", $spec_message[0]);													
+
+															$special_message .= '<div class="service_order_special_message"><p class="service_order_value_item">'.$spec_line1[1].'</p></div>';															
+															
+														}
+
+// print_r($custom_request_arr);
+
+
+
+													 ?>
+														<div class="profile_order_block profile_service_block_desc profile_service_block_desc_hide">
+															<div class="service_order_block_wrap">
+																<div class="service_order_block_item_wrap">					 
+																	<p class="services_order_row">
+																		<img style="width:23px; height: 23px;" src="<?php echo get_template_directory_uri(); ?>/img/account/byild_icon.svg"/>				
+																		<span class="services_order_name_row">Accomodation</span>
+																	</p>
+																	<div class="service_order_block_accomodation profile_service_accomodation_row1">
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">City</p>
+																			<?php echo $acomo_city; ?>																
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Hotel</p>
+																			<?php echo $acomo_hotel; ?>																				
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Dates</p>
+																			<?php echo $acomo_date; ?>													
+																		</div>
+
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Guests Amount</p>
+																			<?php echo $acomo_guest; ?>														
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Amount of rooms by capacity</p>
+																			<?php echo $acomo_rooms; ?>															
+																		</div>	
+																		<div class="service_order_block_accomodation " style="width:100%;">
+																			<div class="service_order_block_info" style="width:100%;">
+																				<p class="service_order_name_value" style="width:100%;"><!--Wishes--></p>
+																				<?php echo $acomo_mes; ?>				
+																			</div>
+																		</div>						
+																	</div>
+																	<div class="service_order_block_accomodation">
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value"><!--Wishes--></p>
+																			<div class="service_order_accomod_wishes"></div>				
+																		</div>
+																	</div>
+																
+																	<div class="service_order_horizontal"></div>
+																</div>
+
+																<div class="service_order_block_item_wrap">					 
+																	<p class="services_order_row">
+																		<svg class="services_icon" width="26" height="22" viewBox="0 0 26 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#2F80ED" id="path0_fill" d="M 15.1667 14.3L 19.5 14.3L 19.5 16.5L 15.1667 16.5L 15.1667 14.3ZM 0 4.39998L 2.16668 4.39998L 2.16668 9.89999L 0 9.89999L 0 4.39998ZM 23.8333 4.39998L 26 4.39998L 26 9.89999L 23.8333 9.89999L 23.8333 4.39998ZM 20.5833 5.02245e-08L 5.41668 5.02245e-08C 4.22503 5.02245e-08 3.25 0.989974 3.25 2.20002L 3.25 19.8L 5.41668 19.8L 5.41668 22L 7.58337 22L 7.58337 19.8L 18.4167 19.8L 18.4167 22L 20.5834 22L 20.5834 19.8L 22.75 19.8L 22.75 2.20002C 22.75 0.990025 21.775 5.14801e-05 20.5833 5.02245e-08ZM 20.5833 17.6L 5.41668 17.6L 5.41668 13.2L 20.5834 13.2L 20.5834 17.6L 20.5833 17.6ZM 20.5833 11L 5.41663 11L 5.41663 5.50001L 11.9166 5.50001L 11.9166 8.80001L 14.0833 8.80001L 14.0833 5.50001L 20.5833 5.50001L 20.5833 11L 20.5833 11ZM 20.5832 3.30005L 5.41658 3.30005L 5.41658 2.20002L 20.5833 2.20002L 20.5833 3.30005L 20.5832 3.30005ZM 6.5 14.3L 10.8333 14.3L 10.8333 16.5L 6.5 16.5L 6.5 14.3Z"></path></svg>
+																		<span class="services_order_name_row">Transfer</span>
+																	</p>
+																	
+																	<div class="service_order_block_accomodation profile_service_accomodation_row2">
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">City</p>
+																			<?php echo $trans_city; ?>
+																								
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Place</p>
+																			<div class="service_transfer_from_place"></div>	
+																			<?php echo $trans_place; ?>			
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Departure Date</p>
+																			<?php echo $trans_date; ?>
+																			<!-- <div class="service_transfer_from_date"></div>	 -->					
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Time</p>
+																			<?php echo $trans_time; ?>						
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Passengers Amount</p>
+																			<?php echo $trans_pasen; ?>								
+																		</div>					
+																	</div>					
+																
+																	<div class="service_order_horizontal"></div>
+																</div>
+																<div class="service_order_block_item_wrap">					 
+																	<p class="services_order_row">
+																		<svg class="services_icon" width="25" height="22" viewBox="0 0 25 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#2F80ED" d="M 10.2022 14.6875L 10.7819 16.1455C 10.2205 16.3712 9.66049 16.5431 9.11418 16.658L 8.79519 15.1206C 9.25304 15.0236 9.72603 14.878 10.2022 14.6875ZM 5.55274 16.5707C 6.12491 16.7363 6.72779 16.8254 7.34412 16.8345L 7.36865 15.2633C 6.88943 15.2554 6.42406 15.1881 5.98466 15.0609L 5.55274 16.5707ZM 17.8557 13.8282C 18.3061 13.9175 18.7455 14.0724 19.162 14.2887L 19.8795 12.8923C 19.33 12.6084 18.7517 12.4043 18.158 12.2875L 17.8557 13.8282ZM 14.5964 12.5392L 15.0637 14.0369C 15.541 13.8865 16.0128 13.7914 16.4672 13.7546L 16.3424 12.1893C 15.7716 12.2354 15.1841 12.3537 14.5964 12.5392ZM 12.0881 13.7209C 11.9127 13.8314 11.7402 13.9324 11.5707 14.0277L 12.3307 15.3999C 12.5214 15.292 12.7167 15.1789 12.9119 15.056C 13.1806 14.8887 13.4431 14.7397 13.7009 14.6076L 12.9913 13.2083C 12.6984 13.3588 12.3962 13.5291 12.0881 13.7209ZM 16.4064 3.92857C 16.4064 4.57003 16.2535 5.17775 15.982 5.7119L 12.5001 12.5713C 12.5001 12.5713 8.99057 5.6549 8.97687 5.62593C 8.7311 5.11334 8.59394 4.53629 8.59394 3.92857C 8.59394 1.75867 10.3425 1.10696e-08 12.5001 1.10696e-08C 14.6575 1.10696e-08 16.4064 1.75867 16.4064 3.92857ZM 14.8439 3.92857C 14.8439 2.6272 13.794 1.57134 12.5001 1.57134C 11.2061 1.57134 10.1563 2.6272 10.1563 3.92857C 10.1563 5.22978 11.2061 6.28563 12.5001 6.28563C 13.794 6.28563 14.8439 5.22978 14.8439 3.92857ZM 20.3126 7.85713L 16.6476 7.85713L 15.8492 9.42863L 19.1864 9.42863L 20.8726 14.5175L 20.334 15.116C 20.9078 15.6374 21.2052 16.118 21.2069 16.1196L 21.3716 16.02L 22.8319 20.4285L 2.16674 20.4285L 3.7324 15.7098C 3.78732 15.7482 3.82993 15.7849 3.89099 15.8231L 4.72119 14.4942C 4.53499 14.3759 4.38237 14.2594 4.24805 14.1505L 5.81376 9.42858L 9.15226 9.42858C 8.82111 8.77779 8.56019 8.26385 8.35425 7.85708L 4.68755 7.85708L 0 22L 25 22L 20.3126 7.85713Z"></path></svg>
+																		<span class="services_order_name_row">Guide</span>
+																	</p>
+																	<div class="service_order_block_guide profile_service_accomodation_row3">
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">City</p>
+																			<?php echo $guide_city; ?>												
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Date</p>
+																			<?php echo $guide_date; ?>												
+																		</div>
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Hours</p>
+																			<?php echo $guide_hour; ?>												
+																		</div>							
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Subject/wishes</p>
+																			<?php echo $guide_wishes; ?>							
+																		</div>					
+																	</div>
+																
+																	<div class="service_order_horizontal"></div>
+																</div>
+																<div class="service_order_block_item_wrap">					 
+																	<p class="services_order_row">
+																		<svg class="services_icon" width="23" height="23" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+																	
+																	<path fill="#2F80ED" transform="translate(3.8 0)" d="M 15.4529 7.67522C 15.4252 3.43836 11.9698 0 7.72656 0C 3.48329 0 0.0279413 3.43836 0.000179589 7.67522L 0 7.72656L 8.97944e-05 7.72656C 0.01433 10.8121 1.31203 12.5197 2.45768 14.0273C 3.4159 15.2883 4.1727 16.2843 4.1727 17.9423L 4.1727 20.3047C 4.1727 21.7909 5.38182 23 6.86802 23L 8.58506 23C 10.0713 23 11.2804 21.7909 11.2804 20.3047L 11.2804 17.9424C 11.2804 16.2843 12.0372 15.2883 12.9954 14.0274C 14.1411 12.5197 15.4388 10.8121 15.453 7.72656L 15.4531 7.67522L 15.4529 7.67522ZM 9.4835 20.3047C 9.4835 20.8001 9.08046 21.2031 8.58506 21.2031L 6.86802 21.2031C 6.37262 21.2031 5.96958 20.8001 5.96958 20.3047L 5.96958 18.5527L 9.4835 18.5527L 9.4835 20.3047ZM 11.5647 12.9402C 10.7334 14.0343 9.87895 15.1586 9.58786 16.7559L 5.86522 16.7559C 5.57413 15.1586 4.71972 14.0343 3.88835 12.9402C 2.81683 11.5301 1.80456 10.198 1.79688 7.7037C 1.80923 4.44448 4.46452 1.79688 7.72656 1.79688C 10.9886 1.79688 13.6439 4.44448 13.6562 7.7037C 13.6486 10.198 12.6363 11.5301 11.5647 12.9402Z"></path>
+																	<path fill="transparent" d="M3,3l-2,-1" stroke-width="2px" stroke="#2F80ED"></path>
+																	<path fill="transparent" d="M2,8l-2,0" stroke-width="2px" stroke="#2F80ED"></path>
+																	<path fill="transparent" d="M3,13l-2,1" stroke-width="2px" stroke="#2F80ED"></path>
+																	<path fill="transparent" d="M20,3l2,-1" stroke-width="2px" stroke="#2F80ED"></path>
+																	<path fill="transparent" d="M21,8l2,0" stroke-width="2px" stroke="#2F80ED"></path>
+																	<path fill="transparent" d="M20,13l2,1" stroke-width="2px" stroke="#2F80ED"></path>
+																	</svg>
+																		<span class="services_order_name_row">Special</span>
+																	</p>
+																	<div class="service_order_block_guide profile_service_accomodation_row4">						
+																		<div class="service_order_block_info">
+																			<p class="service_order_name_value">Custom service request</p>
+																			<?php echo $special_message; ?>
+																		</div>					
+																	</div>
+																
+																	<div class="service_order_horizontal"></div>
+																</div>
+														
+															</div>
+														</div>
+
+
+
+<?php
+										    	// echo $order_req->customer_message;
+										   
+
+										    	if($services_item%8 == 0){$services_count++; echo '</div>'; }
 										    	$services_item++;												
 										    }
 										    $services_item--;									
 										?>
-										<?php if($services_item%4 > 0 || $services_item < 4){echo '</div>'; }?>
+										<?php if($services_item%8 > 0 || $services_item < 8){echo '</div>'; }?>
 										 </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
 										    <div class="wrap_pagination_pro">
@@ -253,7 +562,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$items = $order_req->get_items();
 												
 												foreach ( $items as $item ) {
-													if($request_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$request_count.'">'; }
+													if($request_item % $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$request_count.'">'; }
 												    $product_name = $item->get_name();
 												    $product_id = $item->get_product_id();
 												    $product_variation_id = $item->get_variation_id();
@@ -261,15 +570,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 												    $parent_id = $product->parent->id;							 
 												    $parent_meta = get_post_meta($parent_id);
 												
-												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';
-												if($request_item%4 == 0){$request_count++; echo '</div>'; }
-														$request_item++;					    	
+												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price"> - </div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';												
+												if($request_item% $tour_limit == 0){$request_count++; echo '</div>'; }
+													$request_item++;						    	
 												    
 												}
 										    }
 										    $request_item--;
 										?>
-										<?php if($request_item%4 > 0  || $request_item < 4){echo '</div>'; } ?>
+										<?php if($request_item % $tour_limit > 0  || $request_item < $tour_limit){echo '</div>'; } ?>
 										 </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
 										    <div class="wrap_pagination_pro">
@@ -314,7 +623,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										    		$items = $advance_paid->get_items();
 										    		
 													foreach ( $items as $item ) {
-														if($advance_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$advance_count.'">'; }
+														if($advance_item % $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$advance_count.'">'; }
 													    $product_name = $item->get_name();
 													    $product_id = $item->get_product_id();
 													    $product_variation_id = $item->get_variation_id();
@@ -323,16 +632,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 													    $parent_meta = get_post_meta($parent_id);
 
 													
-													echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.($product->get_regular_price() * 0.1).' USD	</div><div class="list_tour_item_view_order"><a href="' . site_url( '/paused-order-tour/' ).'?tour_id=' . $product_variation_id .'">	View/Order</a></div>	</div>';
-													if($advance_item%4 == 0){$advance_count++; echo '</div>'; }
-														$advance_item++;				    	
+													echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.($product->get_regular_price() * 0.1).' USD	</div><div class="list_tour_item_view_order"><a href="' . site_url( '/paused-order-tour/' ).'?tour_id=' . $product_variation_id .'">	View/Order</a></div>	</div>';														
+													if($advance_item% $tour_limit == 0){$advance_count++; echo '</div>'; }
+														$advance_item++;			    	
 													    
 													}
 										    	}												
 										    }
 										    $advance_item--;
 										?>
-										<?php if($advance_item%4 > 0 || $advance_item < 4){echo '</div>'; } ?>
+										<?php if($advance_item% $tour_limit > 0 || $advance_item < $tour_limit){echo '</div>'; } ?>
 										 </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
 										    <div class="wrap_pagination_pro">
@@ -375,7 +684,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$items = $order_paid->get_items();
 												 
 												foreach ( $items as $item ) {
-													if($paid_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$paid_count.'">'; }
+													if($paid_item%$tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$paid_count.'">'; }
 												    $product_name = $item->get_name();
 												    $product_id = $item->get_product_id();
 												    $product_variation_id = $item->get_variation_id();
@@ -383,15 +692,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 												    $parent_id = $product->parent->id;							 
 												    $parent_meta = get_post_meta($parent_id);
 												
-												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';	
-												if($paid_item%4 == 0){$paid_count++; echo '</div>'; }
-												$paid_item++;					    					    	
+												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';
+														
+												if($paid_item%$tour_limit == 0){$paid_count++; echo '</div>'; }
+													$paid_item++;			    					    	
 												   
 												}
 										    }
 										    $paid_item--;
 										?>	
-											<?php if($paid_item%4 > 0 || $paid_item < 4){echo '</div>'; } ?>
+											<?php if($paid_item% $tour_limit > 0 || $paid_item < $tour_limit){echo '</div>'; } ?>
 																			 
 										    </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
@@ -435,7 +745,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$items = $order_hystory->get_items();
 												
 												foreach ( $items as $item ) {
-													if($history_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$slide_count.'">'; }
+													if($history_item% $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$slide_count.'">'; }
 												    $product_name = $item->get_name();
 												    $product_id = $item->get_product_id();
 												    $product_variation_id = $item->get_variation_id();
@@ -444,14 +754,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 												    $parent_meta = get_post_meta($parent_id);
 												
 												echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.get_permalink($parent_id).'">	View/Order</a></div>	</div>';
-												if($history_item%4 == 0){$slide_count++; echo '</div>'; }
-												$history_item++;					    	
+													
+												if($history_item % $tour_limit == 0){$slide_count++; echo '</div>'; }
+													$history_item++;			    	
 												    
 												}
 										    }
 										    $history_item--;
 										?>
-											<?php if($history_item%4 > 0 || $history_item < 4){echo '</div>'; } ?>
+											<?php if($history_item% $tour_limit > 0 || $history_item < $tour_limit){echo '</div>'; } ?>
 																			 
 										    </div> <!--  End Swiper wraper  -->
 										    <!-- Add Pagination -->
@@ -497,7 +808,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									$items = $order->get_items();
 									
 									foreach ( $items as $item ) {
-										if($pause_item%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$pause_count.'">'; }
+										if($pause_item% $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$pause_count.'">'; }
 									    $product_name = $item->get_name();
 									    $product_id = $item->get_product_id();
 									    $product_variation_id = $item->get_variation_id();
@@ -507,13 +818,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 									
 									echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($parent_id) .'</h3><h4 class="list_tour_item_child_name">'.$product->attributes['date-of-the-tour'] .'</h4></div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $parent_id ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $parent_id ).'</span></div><div class="list_tour_item_price">'.$product->get_regular_price().' USD	</div><div class="list_tour_item_view_order"><a href="'.home_url().'/order-tour/?tour_id='. $product_variation_id.'&order='.$post->ID .'">	View/Order</a></div>	</div>';
-									if($pause_item%4 == 0){$pause_count++; echo '</div>'; }
+									if($pause_item% $tour_limit == 0){$pause_count++; echo '</div>'; }
 										$pause_item++;
 									}
 							    }
 							    $pause_item--;
 							?>	
-								<?php if($pause_item%4 > 0 || $pause_item < 4){echo '</div>'; } ?>
+								<?php if($pause_item % $tour_limit > 0 || $pause_item < $tour_limit){echo '</div>'; } ?>
 											   								 
 										    </div> 
 										    <!--  End Swiper wraper  -->
@@ -547,17 +858,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$favorite_count = 1;
 						
 						foreach ($favorite_post as $key => $value) {
-							if($favorite_items%4 == 1){echo '<div class="swiper-slide"  data-hash="slide'.$favorite_count.'">'; }
+							if($favorite_items% $tour_limit == 1){echo '<div class="swiper-slide"  data-hash="slide'.$favorite_count.'">'; }
 							$producte = new WC_Product_Variable( $value );
 							$minPrice = $producte->get_variation_regular_price( 'min');
 							$minPrice = explode('.', $minPrice)[0];
 						
 							echo '<div class="list_tour_content_item"><div class="list_tour_item_name">	<h3 class="list_tour_item_parent_name">'. get_the_title($value) .'</h3>												</div><div class="list_tour_item_city_day"><span>'.get_field( "tour_tags_days", $value ).'</span><span> | </span><span>'.get_field( "tour_tags_city", $value ).'</span>				</div>			<div class="list_tour_item_price">'.$minPrice.' USD											</div><div class="list_tour_item_view_order"><a href="'.get_permalink($value).'">	View/Order</a></div>										</div>';
-						if($favorite_items%4 == 0){$favorite_count++; echo '</div>'; }
+						if($favorite_items% $tour_limit == 0){$favorite_count++; echo '</div>'; }
 						$favorite_items++;							
 						}
 					?>
-						<?php if($favorite_items%4 > 0 || $favorite_items < 4){echo '</div>'; } ?>
+						<?php
+							$favorite_items--;	
+						 if($favorite_items% $tour_limit > 0 || $favorite_items < $tour_limit){echo '</div>'; } ?>
 										   								 
 								</div> 
 								<!--  End Swiper wraper  -->

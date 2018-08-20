@@ -161,6 +161,10 @@ Template Name: Services Page
 									<p>Double</p>
 									<input type="number" name="amount_room_two" placeholder="00">
 								</div>
+								<div class="amount_room_input_field amount_room_double">
+									<p>Twin</p>
+									<input type="number" name="amount_room_twin" placeholder="00">
+								</div>
 								<div class="amount_room_input_field amount_room_guest">									
 								 <input class="guide__label_select" type="number" id="accomodation_guest_label_select" placeholder="Guests Amount">						
  
@@ -217,7 +221,22 @@ Template Name: Services Page
 							</div>
 							<p class="amount_room_capacity">Amount of rooms by capacity</p>
 							<div class="amount_room_wraper">
-								<div class="amount_room_input_field amount_room_single"><p>Rooms</p><input type="number" name="amount_room_one" placeholder="00"></div>														
+								<div class="amount_room_input_field amount_room_single">
+									<p>Rooms</p>
+									<input type="number" name="amount_room_one" placeholder="00">
+								</div>
+								<div class="amount_room_input_field">
+									<p>Single</p>
+									<input type="number" name="amount_bed_single" placeholder="00">
+								</div>
+								<div class="amount_room_input_field">
+									<p>Double</p>
+									<input type="number" name="amount_bed_double" placeholder="00">
+								</div>
+								<div class="amount_room_input_field">
+									<p>Twin</p>
+									<input type="number" name="amount_bed_twin" placeholder="00">
+								</div>														
 							</div>
 
 						</div>
@@ -226,8 +245,9 @@ Template Name: Services Page
 
 						<div class="tab_accomodation_head_content_other">
 							<p class="tab_guide_wrap_hint"></p>
+							<p class="amount_room_capacity">Special request</p>
 							<div class="tab_guide_wrap_message_wrap">
-								<textarea class="tab_guide_wrap_message" rows="5" cols="45" name="accomodation_other"></textarea>
+								<textarea class="tab_guide_wrap_message" rows="5" cols="45" name="accomodation_other" placeholder=""></textarea>
 							</div>
 						</div>
 					</div>
@@ -339,7 +359,7 @@ Template Name: Services Page
 								</div>
 
 								<div class="taransfer_from_select taransfer_to_date">							
-									<input class="guide__label_select service_tour_datepicker" type="text" placeholder="Departure date">   
+									<input class="guide__label_select service_tour_datepicker" type="text" placeholder="Arrival date">   
 								</div>
 
 								<div class="taransfer_from_select taransfer_to_passengers">									   
@@ -423,7 +443,10 @@ Template Name: Services Page
 				</div><!-- tour_body_tab_special -->				
 
 				<div class="tour_services_tab_reserve">
-					<div class="tour_services_button_add_more"><svg width="17" height="17" class="add_new_plus_image" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path strke-width="4px" d="M12,1v24"  fill="none" stroke="#2f80ed" stroke-width="4px"/><path strke-width="4px" d="M1,12h24"  fill="none" stroke="#2f80ed" stroke-width="4px"/></svg>Add More</div>
+					<div class="tour_services_button_add_more"><svg width="17" height="17" class="add_new_plus_image" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path strke-width="4px" d="M12,1v24"  fill="none" stroke="#2f80ed" stroke-width="4px"/><path strke-width="4px" d="M1,12h24"  fill="none" stroke="#2f80ed" stroke-width="4px"/></svg>
+						Add More
+						<p class="button_add_more_description">*Select more services</p>
+					</div>
 					<div class="tour_services_button_reserve">Reserve</div>
 					
 				</div>
@@ -492,7 +515,7 @@ Template Name: Services Page
 					</div>
 					<div class="service_order_block_accomodation">
 						<div class="service_order_block_info">
-							<p class="service_order_name_value">Wishes</p>
+							<p class="service_order_name_value"><!--Wishes--></p>
 							<div class="service_order_accomod_wishes"></div>				
 						</div>
 					</div>
@@ -634,7 +657,7 @@ Template Name: Services Page
 						<h4 class="order_persons_info_sec_info">Sex</h4>
 						<input id="order_tour_male" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'male'){echo 'checked';} ?>  type="radio" name="male">
 						<label class="order_tour_label_radio" for="order_tour_male">Male</label>
-						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) != 'male'){echo 'checked';} ?>  type="radio" name="male">	
+						<input id="order_tour_female" class="order_tour_mail_check" <?php if(strtolower($user_sex) == 'female'){echo 'checked';} ?>  type="radio" name="male">	
 						<label class="order_tour_label_radio" for="order_tour_female">Female</label>					
 					</div>
 					<div class="order_tour_slide2_block">
@@ -646,7 +669,7 @@ Template Name: Services Page
 						<input class="order_persons_info_sec_input order__data_city" type="text" value="<?php echo $user_city; ?>" name="data_city" placeholder="City">						
 					</div>
 					<div class="order_tour_slide2_block">
-						<h4 class="order_persons_info_sec_info">Company Name*</h4>
+						<h4 class="order_persons_info_sec_info">Company Name</h4>
 						<input class="order_persons_info_sec_input order__data_company" type="text" name="data_company" value="<?php echo $user_company; ?>" placeholder="Company Name">						
 					</div>
 					
@@ -686,7 +709,7 @@ Template Name: Services Page
 						<span class="order_customer_block_desc order_customer__city"></span>
 					</div>
 					<div class="order_customer_block_item">
-						<span class="order_customer_block_name order_customer_block_company">Company Name*</span>
+						<span class="order_customer_block_name order_customer_block_company">Company Name</span>
 						<span class="order_customer_block_desc order_customer__company"></span>
 					</div>
 				</div>
@@ -695,9 +718,9 @@ Template Name: Services Page
 
 			
 
-			<p class="service_order_aditional_info">
-					Enjoy the colorful culture of our country along with Next Stop  Ukraine that will befriend and guide you during all the stay. From the East to the West of Ukraine, from the glorious Kiev to the powerful Carpathians, from the magical city of Lviv to the sunny Odessa – only this way you will explore the history and soul of the Ukrainian people.
-				</p>
+			<div class="service_order_aditional_info">
+					<?php the_field('services_aditional_info'); ?>
+				</div>
 			<div class="service_order_button_row">
 				<div class="service_order_button_back">Back</div>
 				<div class="service_order_button_next">Next</div>

@@ -68,7 +68,13 @@
 					<?php
 						global $wpdb;
 						$curentUser = get_current_user_id();
-						$u_mail = get_user_meta( $curentUser, 'billing_email', true );
+						 $current_user = wp_get_current_user();
+						if(get_user_meta( $curentUser, 'billing_email', true ) || get_user_meta( $curentUser, 'billing_email', true ) != ""){
+							$u_mail = get_user_meta( $curentUser, 'billing_email', true );
+						} else {
+							$u_mail = $current_user->user_email;
+						}
+						
 					?>
 					<div class="header_my_account_ad_nav">
 						<a href="<?php echo home_url(); ?>/profile/?cabinet=open">Personal Information</a>

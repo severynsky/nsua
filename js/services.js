@@ -249,18 +249,20 @@
 								Sl('.service_order_city').innerHTML += '<p class="service_order_value_item">Hotel: '+shotel[i].childNodes[1].childNodes[1].childNodes[1].value+'</p>';
 								Sl('.service_order_hotel').innerHTML += '<p class="service_order_value_item">'+shotel[i].childNodes[1].childNodes[3].childNodes[1].value+'</p>';
 								Sl('.service_order_hotel_dates').innerHTML += '<p class="service_order_value_item">'+shotel[i].childNodes[1].childNodes[5].childNodes[1].value+' - '+shotel[i].childNodes[1].childNodes[7].childNodes[1].value+'</p>';
-								Sl('.service_order_hotel_guest').innerHTML += '<p class="service_order_value_item">'+shotel[i].childNodes[5].childNodes[5].childNodes[1].value+'</p>';
-								Sl('.service_order_hotel_rooms').innerHTML += '<p class="service_order_value_item"><span>Single '+shotel[i].childNodes[5].childNodes[1].childNodes[3].value+'</span><span>Double '+shotel[i].childNodes[5].childNodes[3].childNodes[3].value+'</span></p>';
+								Sl('.service_order_hotel_guest').innerHTML += '<p class="service_order_value_item">'+shotel[i].childNodes[5].childNodes[7].childNodes[1].value+'</p>';
+								Sl('.service_order_hotel_rooms').innerHTML += '<p class="service_order_value_item"><span>Single '+shotel[i].childNodes[5].childNodes[1].childNodes[3].value+'</span><span>Double '+shotel[i].childNodes[5].childNodes[3].childNodes[3].value+'</span><span>Tween '+shotel[i].childNodes[5].childNodes[5].childNodes[3].value+'</span></p>';
 							}
 							if(sapartament[i].childNodes[1].childNodes[1].childNodes[1].value != 'Select your city'){
 								Sl('.service_order_city').innerHTML += '<p class="service_order_value_item">Appartaments: '+sapartament[i].childNodes[1].childNodes[1].childNodes[1].value+'</p>';
 								Sl('.service_order_hotel').innerHTML += '<p class="service_order_value_item">-</p>';
 								Sl('.service_order_hotel_dates').innerHTML += '<p class="service_order_value_item">'+sapartament[i].childNodes[1].childNodes[5].childNodes[1].value+' - '+sapartament[i].childNodes[1].childNodes[7].childNodes[1].value+'</p>';
 								Sl('.service_order_hotel_guest').innerHTML += '<p class="service_order_value_item">'+sapartament[i].childNodes[1].childNodes[3].childNodes[1].value+'</p>';
-								Sl('.service_order_hotel_rooms').innerHTML += '<p class="service_order_value_item">Rooms '+sapartament[i].childNodes[5].childNodes[1].childNodes[1].value+'</p>';
+								Sl('.service_order_hotel_rooms').innerHTML += '<p class="service_order_value_item"><span>Rooms '+sapartament[i].childNodes[5].childNodes[1].childNodes[3].value+'</span><span>Single '+sapartament[i].childNodes[5].childNodes[3].childNodes[3].value+'</span><span>Double '+sapartament[i].childNodes[5].childNodes[5].childNodes[3].value+'</span><span >Twin'+sapartament[i].childNodes[5].childNodes[7].childNodes[3].value+'</span></p>';
+								console.log(sapartament[i].childNodes[5].childNodes[1].childNodes[1]);
+
 							}
 							if(smessage[i].value != ''){
-								Sl('.service_order_accomod_wishes').innerHTML += '<p class="service_order_value_item">'+smessage[i].value+'</p>';
+								Sl('.service_order_accomod_wishes').innerHTML += '<p class="service_order_value_item">Special request: '+smessage[i].value+'</p>';
 							}
 
 						}
@@ -312,7 +314,7 @@
 					email = true;
 				} 
  
-			    var regex = new RegExp("^[0-9\+]{1,}[0-9\-]{3,15}$");
+			    var regex = new RegExp("^[0-9\+]{1,}[0-9\- ]{3,15}$");
 			     phone = regex.test(jQuery('.order__data_phone').val()); 
 
 			    if(jQuery('.order__data_firstname').val() == ""){
@@ -391,43 +393,43 @@
 								for (var h = 0; h < accomodation_row.length; h++){
 									if(accomodation_row[h].childNodes[1].childNodes[1].childNodes[1].value != 'Select your city'){								
 										accomodation_hotel += ""+(h+1)+") Hotel:";
-										accomodation_hotel += "City:"+accomodation_row[h].childNodes[1].childNodes[1].childNodes[1].value+"; Level:"+accomodation_row[h].childNodes[1].childNodes[3].childNodes[1].value+"; Check in Date:"+accomodation_row[h].childNodes[1].childNodes[5].childNodes[1].value+"; Check out Date:"+accomodation_row[h].childNodes[1].childNodes[7].childNodes[1].value+"; Single:"+accomodation_row[h].childNodes[5].childNodes[1].childNodes[3].value+"; Double:"+accomodation_row[h].childNodes[5].childNodes[3].childNodes[3].value+"; Guest:"+accomodation_row[h].childNodes[5].childNodes[5].childNodes[1].value+"! \n    ";
+										accomodation_hotel += "City:"+accomodation_row[h].childNodes[1].childNodes[1].childNodes[1].value+"; Level:"+accomodation_row[h].childNodes[1].childNodes[3].childNodes[1].value+"; Check in Date:"+accomodation_row[h].childNodes[1].childNodes[5].childNodes[1].value+"; Check out Date:"+accomodation_row[h].childNodes[1].childNodes[7].childNodes[1].value+"; Single:"+accomodation_row[h].childNodes[5].childNodes[1].childNodes[3].value+"; Double:"+accomodation_row[h].childNodes[5].childNodes[3].childNodes[3].value+ "; Twin:"+accomodation_row[h].childNodes[5].childNodes[5].childNodes[3].value+"; Guest:"+accomodation_row[h].childNodes[5].childNodes[7].childNodes[1].value+"! \n    ";
 									}
 								}
 								for (var q = 0; q < accomodation_apart.length; q++) {
 									if(accomodation_apart[q].childNodes[1].childNodes[1].childNodes[1].value != 'Select your city'){
 										accomodation_apartament +=""+(q+1)+") Apartament:";
-										accomodation_apartament += "City:"+accomodation_apart[q].childNodes[1].childNodes[1].childNodes[1].value+"; Guest:"+accomodation_apart[q].childNodes[1].childNodes[3].childNodes[1].value+"; Check in Date:"+accomodation_apart[q].childNodes[1].childNodes[5].childNodes[1].value+"; Check out Date:"+accomodation_apart[q].childNodes[1].childNodes[7].childNodes[1].value+"; Rooms:"+accomodation_apart[q].childNodes[5].childNodes[1].childNodes[1].value+";!  \n ";
+										accomodation_apartament += "City:"+accomodation_apart[q].childNodes[1].childNodes[1].childNodes[1].value+"; Guest:"+accomodation_apart[q].childNodes[1].childNodes[3].childNodes[1].value+"; Check in Date:"+accomodation_apart[q].childNodes[1].childNodes[5].childNodes[1].value+"; Check out Date:"+accomodation_apart[q].childNodes[1].childNodes[7].childNodes[1].value+"; Rooms:"+accomodation_apart[q].childNodes[5].childNodes[1].childNodes[3].value+"Single"+accomodation_apart[q].childNodes[5].childNodes[3].childNodes[3].value+"; Double "+accomodation_apart[q].childNodes[5].childNodes[5].childNodes[3].value+"; Twin"+accomodation_apart[q].childNodes[5].childNodes[7].childNodes[3].value+"!\n ";
 									}
 								}
 
 								for (var j = 0; j < accomodation_message.length; j++) {
 									if(accomodation_message[j].value != ''){
-										accomodation_other += ""+(j+1)+") Message:"+accomodation_message[j].value+";  \n  ";
+										accomodation_other += ""+(j+1)+") Message:"+accomodation_message[j].value+";!  \n  ";
 									}		
 								}
 
 								for(var b = 0; b < transfer_from.length; b++){
 									if(transfer_from[b].childNodes[1].childNodes[1].childNodes[1].value != 'Select your city'){
-										transfer_from_content += ""+(b+1)+") Transfer From: City:"+transfer_from[b].childNodes[1].childNodes[1].childNodes[1].value+"; From place:"+transfer_from[b].childNodes[1].childNodes[3].childNodes[1].value+"; Departure date:"+transfer_from[b].childNodes[1].childNodes[5].childNodes[1].value+";  Passengers:"+transfer_from[b].childNodes[1].childNodes[7].childNodes[1].value+"; Transfer time:"+transfer_from[b].childNodes[3].childNodes[1].value+";  \n ";	
+										transfer_from_content += ""+(b+1)+") Transfer From: City:"+transfer_from[b].childNodes[1].childNodes[1].childNodes[1].value+"; From place:"+transfer_from[b].childNodes[1].childNodes[3].childNodes[1].value+"; Departure date:"+transfer_from[b].childNodes[1].childNodes[5].childNodes[1].value+";  Passengers:"+transfer_from[b].childNodes[1].childNodes[7].childNodes[1].value+"; Transfer time:"+transfer_from[b].childNodes[3].childNodes[1].value+";!  \n ";	
 									}
 								}
 
 								for(var c = 0; c < transfer_to.length; c++){
 									if(transfer_to[c].childNodes[1].childNodes[1].childNodes[1].value != 'Select your city'){
-										transfer_to_content += ""+(c+1)+") Transfer To: City:"+transfer_to[c].childNodes[1].childNodes[1].childNodes[1].value+"; To place:"+transfer_to[c].childNodes[1].childNodes[3].childNodes[1].value+"; To date:"+transfer_to[c].childNodes[1].childNodes[5].childNodes[1].value+";  Passengers:"+transfer_from[c].childNodes[1].childNodes[7].childNodes[1].value+"; To time:"+transfer_to[c].childNodes[3].childNodes[1].value+"; \n";
+										transfer_to_content += ""+(c+1)+") Transfer To: City:"+transfer_to[c].childNodes[1].childNodes[1].childNodes[1].value+"; To place:"+transfer_to[c].childNodes[1].childNodes[3].childNodes[1].value+"; To date:"+transfer_to[c].childNodes[1].childNodes[5].childNodes[1].value+";  Passengers:"+transfer_from[c].childNodes[1].childNodes[7].childNodes[1].value+"; To time:"+transfer_to[c].childNodes[3].childNodes[1].value+";! \n";
 									}
 								}
 								
 
 								for(var f = 0; f < guide_wrap.length; f++){
 									if(guide_wrap[f].childNodes[1].childNodes[1].childNodes[1].value != 'Select your city'){
-										guide_content += ""+(f+1)+")Interpreter/Guide: City:"+guide_wrap[f].childNodes[1].childNodes[1].childNodes[1].value+"; Date:"+guide_wrap[f].childNodes[1].childNodes[3].childNodes[1].value+"; Hour from:"+guide_wrap[f].childNodes[1].childNodes[5].childNodes[1].value+"; Hour to:"+guide_wrap[f].childNodes[1].childNodes[7].childNodes[1].value+"; Message:"+guide_wrap[f].childNodes[5].childNodes[1].value+";\n "					
+										guide_content += ""+(f+1)+")Interpreter/Guide: City:"+guide_wrap[f].childNodes[1].childNodes[1].childNodes[1].value+"; Date:"+guide_wrap[f].childNodes[1].childNodes[3].childNodes[1].value+"; Hour from:"+guide_wrap[f].childNodes[1].childNodes[5].childNodes[1].value+"; Hour to:"+guide_wrap[f].childNodes[1].childNodes[7].childNodes[1].value+"; Note:"+guide_wrap[f].childNodes[5].childNodes[1].value+";!\n "					
 									}
 								}
 								for (var r = 0; r< special_message.length; r++) {
 									if(special_message[r].value != ''){
-										special_message_content += ""+(r+1)+") Special message:" +special_message[r].value+"; \n";	
+										special_message_content += ""+(r+1)+") Special message:" +special_message[r].value+";! \n";	
 									}				
 								}
 
@@ -472,7 +474,7 @@
 											};
 											// console.log(servicedata);
 											jQuery.post({ url:MyAjax.ajaxurl, data:servicedata, success:function(response) {
-													// console.log("+" + response + "+");						
+													 //console.log("+" + response + "+");						
 													window.location.href = window.location.href = MyAjax.home_url+'/register/';
 
 												}, error:function(jqXHR, exception){
@@ -481,13 +483,28 @@
 												},
 											});
 					});
-
-					
-
-
-
-
-
-
 					}
+
+					window.addEventListener('DOMContentLoaded', function(){
+						if(document.querySelector('.review_hide_description_serv')){
+								jQuery('.review_hide_description_serv').click(function(){
+									var el = jQuery(this).parent( ".list_tour_content_item" );
+									var clasEl = el.next('.profile_service_block_desc').hasClass('profile_service_block_desc_hide');
+									if(clasEl){
+										el.next('.profile_service_block_desc').removeClass('profile_service_block_desc_hide');
+										// el.next('.profile_service_block_desc').css('display','none');
+										el.find('.list_tour_service_review').css('display','none');
+										el.find('.list_tour_service_hide').css('display','inline-block');
+										el.find('.review_hide_description_serv img').css('transform','rotate(180deg)');
+									} else {
+										el.next('.profile_service_block_desc').addClass('profile_service_block_desc_hide');
+										el.find('.list_tour_service_review').css('display','inline-block');
+										el.find('.list_tour_service_hide').css('display','none');
+										el.find('.review_hide_description_serv img').css('transform','rotate(0deg)');
+									}
+									
+
+								});
+						}
+					});
 				})();
