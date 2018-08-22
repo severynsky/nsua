@@ -223,7 +223,6 @@ function create_order(){
 				$double_value = sanitize_text_field($_POST['double_value']);
 				$requirement = sanitize_text_field($_POST['requirement']);
 				$method_buy = sanitize_text_field($_POST['method_buy']);
-				$twin_value =  sanitize_text_field($_POST['twin_value']);	
 
 	    		$default_args = array(
 					'status'        => 'wc-request',
@@ -271,7 +270,6 @@ function create_order(){
 			    $note .= "Elderly: " . $elderly_value . "\n";
 			    $note .= "Single apartament: " . $single_value . "\n";
 			    $note .= "Double apartament: " . $double_value . "\n";
-			    $note .= "Twin apartament: " . $twin_value . "\n";
 			    $note .= $tour_configuration . "\n";
 			    $note .= "Requirement: " . $requirement . "\n";
 
@@ -326,7 +324,7 @@ function service_order(){
 	    		$apartament = 		sanitize_text_field($_POST['apartament']);
 	    		$other_accomo = 	sanitize_text_field($_POST['other_accomo']);
 	    		$transfer_from = 	sanitize_text_field($_POST['transfer_from']);
-	    		$transfer_to = 	sanitize_text_field($_POST['transfer_to']);
+	    		$transfer_tol = 	sanitize_text_field($_POST['transfer_to']);
 	    		$guide = 			sanitize_text_field($_POST['guide']);
 	    		$special_message = 	sanitize_text_field($_POST['special_message']);
 
@@ -374,7 +372,7 @@ function service_order(){
 			    wc_add_order_item_meta($order_id, 'apartament', $apartament);
 			    wc_add_order_item_meta($order_id, 'other_accomo', $other_accomo);
 			    wc_add_order_item_meta($order_id, 'transfer_from', $transfer_from);
-			    wc_add_order_item_meta($order_id, 'transfer_to', $transfer_to);
+			    wc_add_order_item_meta($order_id, 'transfer_to', $transfer_tol);
 			    wc_add_order_item_meta($order_id, 'guide', $guide);
 			    wc_add_order_item_meta($order_id, 'special_message', $special_message);
 
@@ -386,7 +384,7 @@ function service_order(){
 			    $note .= $apartament . "\n";
 			    $note .= $other_accomo . "\n";
 			    $note .= $transfer_from . "\n";
-			    $note .= $transfer_to . "\n";
+			    $note .= $transfer_tol . "\n";
 			    $note .= $guide . "\n";
 			    $note .= $special_message . "\n";
 
@@ -402,20 +400,173 @@ function service_order(){
 				$order->save();
 
 			    
-				echo  $note;
+				// echo  $note;
 	            echo 'Ok'; 
 	             if($order_id){
 			    	remove_all_filters( 'wp_mail_from' );
 					remove_all_filters( 'wp_mail_from_name' );
+					
+					$hotel_data1 = '<div><table style="width: 100%; padding-bottom: 10px;"><tr><img src="services-icom1.svg"> <h2 style="display: inline-block; padding-left: 20px;">Accomodation</h2></tr><tr><h4>Hotel</h4></tr><tr style=""><td style="width: 20%;">City</td><td style="width: 15%;">Hotel</td>
+				<td style="width: 20%;">Dates</td><td style="width: 15%;">Guests Amount</td><td style="width: 30%;">Amount of rooms by capacity</td></tr>';
+					$hotel_details = explode("!", $hotel);
+					
+					for ($ig = 0; $ig < (count($hotel_details) -1); $ig++) { 
+							$hotel_detail1 = explode(";", $hotel_details[$ig]);
+							$hotel_detail11 = explode(":", $hotel_detail1[0]);
+							$hotel_detail12 = explode(":", $hotel_detail1[1]);
+							$hotel_detail13 = explode(":", $hotel_detail1[2]);
+							$hotel_detail14 = explode(":", $hotel_detail1[3]);
+							$hotel_detail15 = explode(":", $hotel_detail1[7]);
+
+							if($hotel_detail11[2] != "" || !$hotel_detail11[2]){
+								$hotel_data1 .= "<tr><td style='width: 20%;'><p>".$hotel_detail11[2]."</p></td>";
+								$hotel_data1 .= "<td style='width: 15%;'><p>".$hotel_detail12[1]."</p></td>";
+								$hotel_data1 .= "<td style='width: 20%;'><p>".$hotel_detail13[1]."-".$hotel_detail14[1]."</p></td>";
+								$hotel_data1 .= "<td style='width: 15%;'><p>".$hotel_detail15[1]."</p></td>";
+								$hotel_data1 .= "<td style='width: 30%;'><p>".$hotel_detail1[4].";".$hotel_detail1[5]."; ".$hotel_detail1[6]."</p></td></tr>";
+							}
+					}
+					$hotel_data1 .= '</table></div>';
+
+
+					$apart_data1 = '<div><table style="width: 100%; padding-bottom: 10px;"><tr><h4>Appartments</h4></tr><tr style=""><td style="width: 20%;">City</td><td style="width: 15%;">Guest</td>
+				<td style="width: 20%;">Dates</td><td style="width: 10%;">-</td><td style="width: 30%;">Amount of rooms by capacity</td></tr>';
+					$apart_details = explode("!", $apartament);
+					
+					for ($ij = 0; $ij < (count($apart_details) -1); $ij++) { 
+							$apart_detail1 = explode(";", $apart_details[$ij]);
+							$apart_detail11 = explode(":", $apart_detail1[0]);
+							$apart_detail12 = explode(":", $apart_detail1[1]);
+							$apart_detail13 = explode(":", $apart_detail1[2]);
+							$apart_detail14 = explode(":", $apart_detail1[3]);
+							
+
+							if($apart_detail11[2] != "" || !$apart_detail11[2]){
+								$apart_data1 .= "<tr><td style='width: 20%;'><p>".$apart_detail11[2]."</p></td>";
+								$apart_data1 .= "<td style='width: 15%;'><p>".$apart_detail12[1]."</p></td>";
+								$apart_data1 .= "<td style='width: 20%;'><p>".$apart_detail13[1]."-".$apart_detail14[1]."</p></td>";
+								$apart_data1 .= "<td style='width: 10%;'><p>-</p></td>";
+								$apart_data1 .= "<td style='width: 30%;'><p>".$apart_detail1[4].";".$apart_detail1[5]."; ".$apart_detail1[6]."; ".$apart_detail1[7]."</p></td></tr>";
+							}
+					}
+					$apart_data1 .= '</table></div>';
+
+
+					//$other_accomo;
+					$other_msg_data = explode("!", $other_accomo);
+					$other_msg = '<div><table style="width: 100%; padding-bottom: 10px;"><tr><h4>Special request</h4></tr><tr style=""><td style="width: 100%;"></td></tr>';
+					for ($iz = 0; $iz < (count($other_msg_data) -1); $iz++) { 
+						$msg_detail1 = explode(":", $other_msg_data[$iz]);
+						$other_msg .= "<tr><td style='width: 100%;'><p>".$msg_detail1[1]."</p></td><tr>";
+					}
+					$other_msg .= '</table></div>';
+
+
+					// from data
+					$trans_data1 = '<div><table style="width: 100%; padding-bottom: 10px;"><tr><h4>Transfer</h4></tr><tr style=""><td style="width: 20%;">City</td><td style="width: 15%;">Place</td>
+				<td style="width: 25%;">Dates</td><td style="width: 20%;">Passengers</td><td style="width: 20%;">Time</td></tr>';
+					$trans_from_details = explode("!", $transfer_from);
+					$trans_to_details = explode("!", $transfer_tol);
+					
+					for ($iq = 0; $iq < (count($trans_from_details) -1); $iq++) { 
+							$from_detail1 = explode(";", $trans_from_details[$iq]);
+							if((count($trans_to_details) - 1) >= $iq) $to_detail1 = explode(";", $trans_to_details[$iq]);
+
+							$from_dat1 = explode(":", $from_detail1[0]);
+							$to_dat1 = explode(":", $to_detail1[0]);
+							$from_dat2 = explode(":", $from_detail1[1]);
+							$to_dat2 = explode(":", $to_detail1[1]);
+							$from_dat3 = explode(":", $from_detail1[2]);
+							$to_dat3 = explode(":", $to_detail1[2]);
+							$from_dat4 = explode(":", $from_detail1[3]);
+							$to_dat4 = explode(":", $to_detail1[3]);
+							$from_dat5 = explode(":", $from_detail1[4]);
+							$to_dat5 = explode(":", $to_detail1[4]);
+
+
+							if($from_dat1[2] == "" || !$from_dat1[2]) $from_dat1[2] = "-";
+
+							if($to_dat1[2] == "" || !$to_dat1[2]) $to_dat1[2] = "-";
+
+							if($from_dat2[1] == "" || !$from_dat2[1]) $from_dat2[1] = "-";
+							if($to_dat2[1] == "" || !$to_dat2[1]) $to_dat2[1] = "-";
+							if($from_dat3[1] == "" || !$from_dat3[1]) $from_dat3[1] = "-";
+							if($to_dat3[1] == "" || !$to_dat3[1]) $to_dat3[1] = "-";
+							if($from_dat4[1] == "" || !$from_dat4[1]) $from_dat4[1] = "-";
+							if($to_dat4[1] == "" || !$to_dat4[1]) $to_dat4[1] = "-";
+							if($from_dat5[1] == "" || !$from_dat5[1]) $from_dat5[1] = "-";
+							if($to_dat5[1] == "" || !$to_dat5[1]) $to_dat5[1] = "-";	
+							if($from_dat5[2] == "" || !$from_dat5[2]) $from_dat5[2] = "-";
+							if($to_dat5[2] == "" || !$to_dat5[2]) $to_dat5[2] = "-";					
+							
+
+							if($from_dat1[2] != "" || !$from_dat1[2]){
+								$trans_data1 .= "<tr><td style='width: 20%;'><p>From: ".$from_dat1[2]."</p><p>To: ".$to_dat1[2]."</p></td>";
+								$trans_data1 .= "<td style='width: 15%;'><p>".$from_dat2[1]."</p><p>".$to_dat2[1]."</p></td>";
+								$trans_data1 .= "<td style='width: 25%;'><p>".$from_dat3[1]."</p><p>".$to_dat3[1]."</p></td>";
+								$trans_data1 .= "<td style='width: 20%;'><p>".$from_dat4[1]."</p><p>".$to_dat4[1]."</p></td>";
+								$trans_data1 .= "<td style='width: 20%;'><p>".$from_dat5[1].":".$from_dat5[2]."</p><p>".$to_dat5[1].":".$to_dat5[2]."</p></td></tr>";								
+							}
+					}
+					$trans_data1 .= '</table></div>';
+
+// GUIDE 
+					$guide_data = '<div><table style="width: 100%; padding-bottom: 10px;"><tr><h4>Guide</h4></tr><tr style=""><td style="width: 20%;">City</td><td style="width: 15%;">Place</td>
+				<td style="width: 25%;">Dates</td><td style="width: 20%;">Passengers</td><td style="width: 20%;">Time</td></tr>';
+					$guide_details = explode("!", $guide);
+					for ($ie = 0; $ie < (count($guide_details) -1); $ie++) { 
+							$guide_detail1 = explode(";", $guide_details[$ie]);	
+
+							$guide_detail11 = explode(":", $guide_detail1[0]);							
+							
+
+							if($guide_detail11[2] != "" || !$guide_detail11[2]){
+								$guide_data .= "<tr><td style='width: 20%;'><p>".$hotel_detail11[2]."</p></td>";
+								
+							}
+					}
+					$guide_data .= '</table></div>';
+
+
+
+
+
+
+
+
+					if((count($hotel_details) -1) < 1 || !$hotel_details) $hotel_data1 = "";
+					if((count($apart_details) -1) < 1 || !$apart_details) $apart_data1 = "";
+					if((count($other_msg_data) -1) < 1 || !$other_msg_data) $other_msg = "";
+
+					if((count($trans_from_details) -1) < 1 || !$trans_from_details) $trans_data1 = "";
+					
+
 
 					add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
 			    	$admin_email = trim(get_option('admin_email'));
 			    	$headers = 'From: Next Step Ukraine <'.$admin_email.'>' . "\r\n";
-					$if_send = wp_mail($curent_email, 'Request order', '<div style="text-align:center;"><img style="width:100px; margin:0 auto;" src="'.home_url().'/wp-content/uploads/2018/03/Logo_black.svg"/></div><h1 style="text-align:center;">NEXT STEP UKRAINE</h1><div><table style="width: 100%;"><tr style="background-color:#989; color:#fff; border:solid 1px #456;">	<td><p style="text-align: center;">First name</p></td><td><p style="text-align: center;">Last name</p></td><td><p style="text-align: center;">Company</p></td><td><p style="text-align: center;">Phone</p></td>	<td><p style="text-align: center;">Address</p></td>	<td><p style="text-align: center;">Country</p></td></tr><tr style="border:solid 1px #456;">	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_name.'</p></td>	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_lastn.'</p></td><td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_company.'</p></td>	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_phone.'</p></td><td style="border:1px solid #000;"><p style="text-align: center;">City:'.$curent_city.';</p></td><td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_country.'</p></td></tr></table><div><p style="text-align: center;">ORDER DETAIL</p><div style="">'.$hotel.'</div><div style="">'.$apartament.'</div><div style="">'.$other_accomo.'</div><div style="">'.$transfer_from.'</div><div style="">'.$transfer_to.'</div><div style="">'.$guide.'</div><div style="">'.$special_message.'</div>', $headers);
+
+			    	$email_default = '<div style="text-align:center;"><img style="width:100px; margin:0 auto;" src="'.home_url().'/wp-content/uploads/2018/03/Logo_black.svg"/></div><h1 style="text-align:center;">NEXT STEP UKRAINE</h1><div><table style="width: 100%;"><tr style="background-color:#989; color:#fff; border:solid 1px #456;">	<td><p style="text-align: center;">First name</p></td><td><p style="text-align: center;">Last name</p></td><td><p style="text-align: center;">Company</p></td><td><p style="text-align: center;">Phone</p></td>	<td><p style="text-align: center;">Address</p></td>	<td><p style="text-align: center;">Country</p></td></tr><tr style="border:solid 1px #456;">	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_name.'</p></td>	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_lastn.'</p></td><td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_company.'</p></td>	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_phone.'</p></td><td style="border:1px solid #000;"><p style="text-align: center;">City:'.$curent_city.';</p></td><td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_country.'</p></td></tr></table><div>';
+
+
+
+
+
+
+
+
+
+
+
+
+			    	$email_send = $email_default.''.$hotel_data1.''.$apart_data1.''.$other_msg.''.$trans_data1.'';
+
+
+					$if_send = wp_mail($curent_email, 'Services order', $email_send, $headers);
 					
 						 
 					$headers2 = 'From: Next Step Ukraine <'.$curent_email.'>' . "\r\n";
-						wp_mail($admin_email, 'Request order', '<div style="text-align:center;"><img style="width:100px; margin:0 auto;" src="'.home_url().'/wp-content/uploads/2018/03/Logo_black.svg"/></div><h1 style="text-align:center;">NEXT STEP UKRAINE</h1><div><table style="width: 100%;"><tr style="background-color:#989; color:#fff; border:solid 1px #456;">	<td><p style="text-align: center;">First name</p></td><td><p style="text-align: center;">Last name</p></td><td><p style="text-align: center;">Company</p></td><td><p style="text-align: center;">Phone</p></td>	<td><p style="text-align: center;">Address</p></td>	<td><p style="text-align: center;">Country</p></td></tr><tr style="border:solid 1px #456;">	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_name.'</p></td>	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_lastn.'</p></td><td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_company.'</p></td>	<td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_phone.'</p></td><td style="border:1px solid #000;"><p style="text-align: center;">City:'.$curent_city.';</p></td><td style="border:1px solid #000;"><p style="text-align: center;">'.$curent_country.'</p></td></tr></table><div><p style="text-align: center;">ORDER DETAIL</p><div style="margin: 10px 0;">'.$hotel.'</div><div style="margin: 10px 0;">'.$apartament.'</div><div style="margin: 10px 0;">'.$other_accomo.'</div><div style="margin: 10px 0;">'.$transfer_from.'</div><div style="margin: 10px 0;">'.$transfer_to.'</div><div style="margin: 10px 0;">'.$guide.'</div><div style="margin: 10px 0;">'.$special_message.'</div></div></div>', $headers2);
+						wp_mail($admin_email, 'Services order', $email_send , $headers2);
 			    }
 	    	}
 	    	       
@@ -490,8 +641,7 @@ function order_save(){
 	$double =  $_POST['double_value'];
 	$requirement =  $_POST['requirement'];
 	$leader =  $_POST['group_leader'];
-	$configure = $_POST['configuration'];
-	$twin =  $_POST['twin_value'];	
+	$configure = $_POST['configuration'];	
 
 
 	global $woocommerce;
@@ -549,7 +699,6 @@ function order_save(){
 			    $note .= "Elderly: " . $elderly . ";\n";
 			    $note .= "Single: " . $single . ";\n";
 			    $note .= "Double: " . $double . ";\n";
-			    $note .= "Twin: " . $twin . ";\n";
 			    $note .= "Requirement: " . $requirement . ";\n";
 			    $note .= "Leader: " . $leader . ";\n";
 			    $note .= "Configuration: " . $configure . ";\n";			   
