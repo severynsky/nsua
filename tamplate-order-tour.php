@@ -11,25 +11,27 @@
 <?php 
 	global $product, $woocommerce;
 
-	$tourID = $_GET['tour_id'];
-	if(!$tourID){
-		wp_redirect('/');
-	} else {
-
-		$prod_variation = wc_get_product($tourID);//concrete variation 
-		if ($prod_variation == false) {
-			//echo "<p>Hello!!! Invalid ID</p>";
+	if (!isset($_GET['key'])) {
+		$tourID = $_GET['tour_id'];
+		if(!$tourID){
+			//echo "<p>REDIRECT!!! tour_id absent</p>";
 			wp_redirect('/');
+		} else {
+
+			$prod_variation = wc_get_product($tourID);//concrete variation 
+			if ($prod_variation == false) {
+				//echo "<p>REDIRECT!!! Invalid ID</p>";
+				wp_redirect('/');
+			}
+
+			$par_prod = wp_get_post_parent_id( $tourID );
+			$prodObj = new WC_Product_Variable( $par_prod );//parent
+			//$prod_variation = new WC_Product_Variation($tourID);//concrete variation
+			$regular_price = $prod_variation ->regular_price;
+			$variation = wc_get_product($tourID);
+			$tour_atr_name = $variation->get_variation_attributes();
 		}
-
-		$par_prod = wp_get_post_parent_id( $tourID );
-		$prodObj = new WC_Product_Variable( $par_prod );//parent
-		//$prod_variation = new WC_Product_Variation($tourID);//concrete variation
-		$regular_price = $prod_variation ->regular_price;
-		$variation = wc_get_product($tourID);
-		$tour_atr_name = $variation->get_variation_attributes();
 	}
-
 
 ?>
 <?php
@@ -46,6 +48,7 @@
 		$pro_order = $_GET['order'];
 		$order_s = wc_get_order( $pro_order );
 		if(!$order_s){
+			//echo "<p>REDIRECT!!! invalid order</p>";
 			wp_redirect('/');
 		}
 
